@@ -1,0 +1,1497 @@
+﻿<!DOCTYPE html>
+<html ng-app ="rootApplication">
+    <head>
+        <!-- meta data -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <!-- title and favicon -->
+        <title>@ViewBag.Title :: Portfolio Template</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+
+        <link rel="icon" href="../assets/img/icon/fav_icon.gif">
+        @if (false)
+    {
+    <script src="~/Build/css/client-main-master.min.css"></script>
+    }
+    else
+    {
+        <!--necessary stylesheets -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.css">
+    <link type="text/css" rel="stylesheet" href="../css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/popup.css">
+    <link type="text/css" rel="stylesheet" href="../css/owl.carousel.css">
+    <link type="text/css" rel="stylesheet" href="../css/owl.theme.css">
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <link type="text/css" rel="stylesheet" href="../css/reset.css">
+    <link type="text/css" rel="stylesheet" href="../css/angular-toastr.css">
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link type="text/css" rel="stylesheet" href="../css/login.css">
+    <link type="text/css" rel="stylesheet" href="../css/loadingbar.css">
+    <link type="text/css" href="../css/ProfileSearchstyle.css" rel="stylesheet" />
+    }
+        <link href="~/css/slider.css" rel="stylesheet" />
+        <link href="~/css/main.css" rel="stylesheet" />
+        <style type="text/css">
+            .companyLogo {
+                width: 79% !important;
+                padding-top: 30%;
+                padding-left: 18%;
+            }
+             .header {
+                 text-align: center;
+             }
+            .bg-error {
+                border-color: red;
+            }
+        </style>
+
+    </head>
+<body ng-controller="rootController">
+    <div id="preloader">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navabar-div">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index.php"><img src="~/img/logo1.png" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                @*<div class="button-group pull-right">
+                <div class="user-info dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Gopi Krishna</div>
+                <ul class="dropdown-menu user-options">
+                <li><a href="#" class="small" data-value="option1" tabindex="-1"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile</a></li>
+                <li><a href="#" class="small" data-value="option2" tabindex="-1"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;&nbsp;Settings</a></li>
+                <li class="drp-menu">
+                <a ui-sref="aboutUs" class="small" data-value="option3" tabindex="-1"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Portfolio</a><a ui-sref="aboutUs" class="small" data-value="option3" tabindex="-1"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Opportunities</a><a ui-sref="aboutUs" class="small" data-value="option3" tabindex="-1">
+                <span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Profiles
+                </a>
+                </li>
+                <li><a href="#" class="small" data-value="option4" tabindex="-1"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;&nbsp;Log out</a></li>
+                </ul>
+                </div>*@
+                <ul class="nav navbar-top-links navbar-right">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true">
+                            <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-comment fa-fw"></i> New Comment
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-tasks fa-fw"></i> New Task
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="mailbox.html">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="profile.html">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="grid_options.html">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="notifications.html">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li data-toggle="modal" class="loginModal" data-target="#loginModal" ng-click="loginCntrl()">
+                        <a href="/#login">
+                            <i class="fa fa-user"></i> &nbsp;&nbsp; Log In/Sign Up
+                        </a>
+                    </li>
+                </ul>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div id="bl-main" class="bl-main">
+            <section ng-controller="portfolioController">
+                <div class="bl-box">
+
+                    <div class="mask">
+                    </div>
+                    <div class="heading">
+                        <i class="ion-ios-briefcase-outline hidden-xs"></i>
+                        <h2>Portfolio</h2>
+                    </div>
+                </div>
+                <div class="bl-content">
+
+                    <div class="row">
+
+
+
+                        <!--( b ) Portfolio Page Content -->
+
+                        <div class="content-container col-md-10 col-sm-12">
+
+                            <!--( A ) Portfolio -->
+
+                            <div class="portfolio clearfix full-height">
+                                <h2 class="small-heading">PORTFOLIO</h2>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                                        <div class="project-container">
+                                            <div class="row">
+                                                <div class="project-controls">
+                                                    <!-- <button class="filter" data-filter="all">All</button>
+                                                    <a class="anima-effect-2">
+                                                         <button class="filter" data-hover="EDIT" data-filter=".graphic-design">EDIT</button>
+                                                       </a>
+                                                     <a class="anima-effect-2">
+                                                         <button class="filter" data-hover="VIEW" data-filter=".web-design">VIEW</button>
+                                                       </a> -->
+                                                </div>
+
+                                                <!-- Portfolio Control Buttons [ END ] -->
+
+                                                <div id="projects" class="projet-items clearfix">
+
+                                                    <!-- form starting -->
+                                                    <div class="well bs-component edit-form col-lg-4 col-lg-4 col-md-6 col-sm-4 col-xs-6 mix graphic-design">
+                                                        <form class="form-horizontal">
+                                                            <fieldset>
+                                                                <div class="panel-group" id="accordion">
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                                                                    My self
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse1" class="panel-collapse collapse in">
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label Firstname" for="inputEmail">Name</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" placeholder="Name" id="inputName" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label gender">Gender</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="optionsRadios" id="optionsGender1" value="option1" checked=""> Male
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="radio-inline">
+                                                                                        <label>
+                                                                                            <input type="radio" name="optionsRadios" id="optionsGender2" value="option2">
+                                                                                            Female
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label age" for="inputAge">Age</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" placeholder="Age" id="inputAge" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label" for="select">Marital Status</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <select id="select" class="form-control" id="marital-status">
+                                                                                        <option>Married</option>
+                                                                                        <option>single</option>
+                                                                                        <option>widow</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group language">
+                                                                                <label for="checkboxlang" class="col-lg-2 control-label languages">Languages</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="checkbox-inline">
+                                                                                        <label>
+                                                                                            <input type="checkbox" id="english"> English
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="checkbox-inline">
+                                                                                        <label>
+                                                                                            <input type="checkbox" id="hindi"> Hindi
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="checkbox-inline">
+                                                                                        <label>
+                                                                                            <input type="checkbox" id="telugu"> Telugu
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="checkbox-inline">
+                                                                                        <label>
+                                                                                            <input type="checkbox" id="tamil"> Tamil
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="checkboxHobi" class="col-lg-2 control-label hobbies">Hobbies</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <textarea class="form-control" rows="3" id="hobbies"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="myselfDesc" class="col-lg-2 control-label myselfDesc">Myself Description</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <textarea class="form-control" rows="3" id="myself-desc"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                                                                    profession
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse2" class="panel-collapse collapse">
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label" for="inputQualification">Highest Qualification</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" placeholder="Qualification" id="inputQualification" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group experience">
+                                                                                <label class="col-lg-2 control-label" for="inputExperience">Experience</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" placeholder="Year" id="experienceYear" class="form-control">
+                                                                                    <input type="text" placeholder="Month" id="experienceMonth" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group profess">
+                                                                                <label for="checkProfession" class="col-lg-2 control-label languages">Profession</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession1"> profession1 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession2"> profession2 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession3"> profession3 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession4"> profession4 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession5"> profession5 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession6"> profession6 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession7"> profession7 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession8"> profession8 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession9"> profession9 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession10"> profession10 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession11"> profession11 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession12"> profession12 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession13"> profession13 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession14"> profession14 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession15"> profession15 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession16"> profession16 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession17"> profession17 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession18"> profession18 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession19"> profession19 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession20"> profession20 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession21"> profession21 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession22"> profession22 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession23"> profession23 </label> </div>
+                                                                                    <div class="checkbox-inline"> <label> <input type="checkbox" id="profession24"> profession24 </label> </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                                                                    remuneration
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse3" class="panel-collapse collapse">
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label" for="currentAssign">Current Assignment</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <textarea class="form-control" rows="3" id="current-assign"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label" for="lastAssign">Last Assignment</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <textarea class="form-control" rows="3" id="last-assign"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group availbale">
+                                                                                <label class="col-lg-2 control-label" for="lastAssign">availbality</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <!-- <div data-date-format="dd-mm-yyyy" data-date="12-02-2012" id="dp3" class="input-append date">
+                                                                                      <input type="text" readonly="" value="12-02-2012" size="16" class="span2">
+                                                                                      <span class="add-on"><i class="icon-th"></i></span>
+                                                                                    </div>
+                                                                                    <div data-date-format="dd-mm-yyyy" data-date="12-02-2012" id="dp3" class="input-append date">
+                                                                                      <input type="text" readonly="" value="12-02-2012" size="16" class="span2">
+                                                                                      <span class="add-on"><i class="icon-th"></i></span>
+                                                                                    </div> -->
+                                                                                    <input type="text" id="dp1" data-date-format="mm/dd/yy" value="02/16/12" class="span2">
+                                                                                    <input type="text" id="dp2" data-date-format="mm/dd/yy" value="02/16/12" class="span2">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                                                                    Contact Details
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse4" class="panel-collapse collapse">
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label" for="inputEmail">Email</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" placeholder="Email" id="inputEmail" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-lg-2 control-label" for="PhoneNum">Phone Number</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="text" placeholder="Phone Number" id="PhoneNum" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+
+                                                                                <div class="col-lg-10">
+                                                                                    <input type="password" placeholder="" id="inputPassword" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                                                                                    Images-Videos
+                                                                                </a>
+                                                                            </h4>
+                                                                        </div>
+                                                                        <div id="collapse5" class="panel-collapse collapse">
+                                                                            <div class="form-group image">
+                                                                                <label class="col-lg-2 control-label">Upload images</label>
+                                                                                <div class="col-lg-10">
+                                                                                    <input id="input-1a" type="file" class="file" data-show-preview="false">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-lg-2 control-label dis-profile">Disable Profile</label>
+                                                                        <div class="col-lg-10">
+                                                                            <div class="radio-inline">
+                                                                                <label>
+                                                                                    <input type="radio" name="optionsRadios" id="optionsDisprofile" value="option1" checked=""> disable
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class=" col-lg-offset-2 cl-effect-20">
+                                                                        <a class="anima-effect-1">
+                                                                            <button class="btn btn-default filter" data-hover="Cancel" type="reset">Cancel</button>
+                                                                        </a>
+                                                                        <a class="anima-effect-1">
+                                                                            <button class="btn btn-primary filter" data-hover="Submit" type="submit">Submit</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                        <div class="btn btn-primary btn-xs" id="source-button" style="display: none;">&lt; &gt;</div>
+                                                    </div>
+                                                    <!-- Edit form ending -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Footer -->
+
+                            <div class="footer clearfix">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="bl-icon-close close-btn"></span>
+            </section>
+            <section id="bl-work-section" ng-controller="profileSearchController">
+                <div class="bl-box">
+
+                    <div class="mask">
+                    </div>
+                    <div class="heading">
+                        <i class="ion-ios-chatboxes-outline hidden-xs"></i>
+                        <h2>Search</h2>
+                    </div>
+                </div>
+                <div class="bl-content">
+                    <div class="row">
+
+                        <!--( b ) Portfolio Page Content -->
+
+                        <div class="content-container col-md-10 col-sm-12">
+
+                            <!--( A ) Portfolio -->
+
+                            <div class="clearfix">
+                                <h2 class="small-heading">Profile Search</h2>
+                            </div>
+                            <div class="clearfix">
+                                <div class="bar">
+                                    <input type="text" placeholder="Enter your search terms" class="ng-pristine ng-valid">
+                                </div>
+                                <div class="main-slider-container">
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                    <div class="tile">
+                                        <div class="tile-header">
+                                            <div class="slide-cotainer">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li>
+                                                            <img src="http://vignette4.wikia.nocookie.net/happyfeet/images/2/2e/18.1e045.happyfeet1.C--300x300.jpg/revision/latest?cb=20121106200024" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="http://www.deepdiveintel.com/wp-content/uploads/2013/09/Owl-Eye-art-300x300.jpg" />
+                                                        </li>
+                                                        <li>
+                                                            <img src="https://static1.squarespace.com/static/518d270ce4b0b63267ace196/t/51eed82ee4b075ba201d2d47/1374607407114/monster+300x300.jpg" />
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile-body">
+                                            <p class="tile-data"><span>Name:</span> Name comes Here</p>
+                                            <p class="tile-data">Slider caption1 comes Here</p>
+                                            <p class="tile-data">Slider caption2 comes Here</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="clearfix">
+                                <div class="bar">
+                                Create a binding between the searchString model and the text field
+                                <input type="text" placeholder="Enter your search terms" class="ng-pristine ng-valid">
+                                </div>*@
+
+                                @*<ul>
+
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/android/"><img ng-src="http://www.tutorialspoint.com/android/images/android-mini-logo.jpg" src="http://www.tutorialspoint.com/android/images/android-mini-logo.jpg"></a>
+                                <p class="ng-binding">Android tutorials</p>
+                                </li>
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/angularjs/"><img ng-src="http://www.tutorialspoint.com/angularjs/images/angularjs-mini-logo.jpg" src="http://www.tutorialspoint.com/angularjs/images/angularjs-mini-logo.jpg"></a>
+                                <p class="ng-binding">AngularJs Tutorials </p>
+                                </li>
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/html5/"><img ng-src="http://www.tutorialspoint.com/html5/images/html5-mini-logo.jpg" src="http://www.tutorialspoint.com/html5/images/html5-mini-logo.jpg"></a>
+                                <p class="ng-binding">HTML5 Tutorials</p>
+                                </li>
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/css/"><img ng-src="http://www.tutorialspoint.com/css/images/css-mini-logo.jpg" src="http://www.tutorialspoint.com/css/images/css-mini-logo.jpg"></a>
+                                <p class="ng-binding">CSS Tutorials</p>
+                                </li>
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/java/"><img ng-src="http://www.tutorialspoint.com/java/images/java-mini-logo.jpg" src="http://www.tutorialspoint.com/java/images/java-mini-logo.jpg"></a>
+                                <p class="ng-binding">Java Tutorials</p>
+                                </li>
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/joomla/"><img ng-src="http://www.tutorialspoint.com/joomla/images/joomla-mini-logo.jpg" src="http://www.tutorialspoint.com/joomla/images/joomla-mini-logo.jpg"></a>
+                                <p class="ng-binding">Joomla Tutorials</p>
+                                </li>
+                                <li class="ng-scope">
+                                <a href="http://www.tutorialspoint.com/html/"><img ng-src="http://www.tutorialspoint.com/html/images/html-mini-logo.jpg" src="http://www.tutorialspoint.com/html/images/html-mini-logo.jpg"></a>
+                                <p class="ng-binding">HTML Tutorials </p>
+                                </li>
+                                </ul>*@
+                            </div>
+                            <div class="footer clearfix">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="bl-icon-close close-btn"></span>
+            </section>
+            <section ng-controller="opportunitiesController">
+                <div class="bl-box">
+
+                    <div class="mask">
+                    </div>
+                    <div class="heading">
+                        <i class="ion-ios-lightbulb-outline hidden-xs"></i>
+                        <h2>Opportunities</h2>
+                    </div>
+                </div>
+                <div class="bl-content">
+                    <div class="row">
+                        <!--( a ) Portfolio Page Fixed Image Portion -->
+                        <!--( b ) Portfolio Page Content -->
+
+                        <div class="content-container col-md-10 col-sm-12">
+
+                            <!--( A ) Portfolio -->
+
+                            <div class="clearfix">
+                                <h2 class="small-heading">Opportunities</h2>
+                            </div>
+                            <div class="tabs opportunites-tab">
+                                <input type="radio" name="tabs" id="tab1" checked>
+                                <label for="tab1">
+                                    Available Opportunities
+                                </label>
+                                <input type="radio" name="tabs" id="tab2">
+                                <label for="tab2">
+                                    My Opportunities
+                                </label>
+                                <input type="radio" name="tabs" id="tab3">
+                                <label for="tab3">
+                                    Applied Opportunities
+                                </label>
+                                <div id="tab-content1" class="tab-content">
+                                    <div class="content-block">
+                                        <div class="opp-div" ng-repeat="opportunity in IntialLoad.opportunitiesCollection">
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Professions :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p> <span ng-repeat="profession in opportunity.Professions">{{profession}},</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Remuneration :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p> {{opportunity.Remuneration}} </p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Dates :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p>{{opportunity.StartDate | date : 'dd-MM-yyyy'}} To {{opportunity.EndDate | date : 'dd-MM-yyyy'}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Description :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p>{{opportunity.Description}} word word word word word ttttttttttttt ttttttttttttt tttttttttttttttttt  tttttttttttt ttttttttt tttttttttt ttttttt</p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="text-right">
+                                                    <button type="button" class="btn btn-blue" data-toggle="modal" data-target="#myModal">
+                                                        Apply here
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-content2" class="tab-content">
+                                    <table class="feature-table">
+                                        <tr>
+                                            <th>Professions</th>
+                                            <th>Remuneraion</th>
+                                            <th>Dates</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr ng-repeat="opportunity in IntialLoad.opportunitiesCollection">
+                                            <td><p ng-repeat="profession in opportunity.Professions">{{profession}}</p></td>
+                                            <td><p> {{opportunity.Remuneration}} </p></td>
+                                            <td><p>{{opportunity.StartDate | date : 'dd-MM-yyyy'}} To {{opportunity.EndDate | date : 'dd-MM-yyyy'}}</p></td>
+                                            <td><p>{{opportunity.Description}} word word word word word ttttttttttttt ttttttttttttt tttttttttttttttttt  tttttttttttt ttttttttt tttttttttt ttttttt</p></td>
+                                            <td class="action-td">
+                                                <input type="button" class="table-action" data-toggle="modal" data-target="#oppAddUpdate" value="Add" />
+                                                <input type="button" class="table-action" data-toggle="modal" data-target="#oppAddUpdate" ng-click="EditSet(opportunity);" value="Edit" />
+                                                <input type="button" class="table-action" value="Delete" ng-click="delete(opportunity.OpportunityId);" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="tab-content3" class="tab-content">
+                                    <div class="content-block">
+                                        <div class="opp-div" ng-repeat="opportunity in IntialLoad.opportunitiesCollection">
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Professions :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p> <span ng-repeat="profession in opportunity.Professions">{{profession}},</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Remuneration :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p> {{opportunity.Remuneration}} </p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Dates :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p>{{opportunity.StartDate | date : 'dd-MM-yyyy'}} To {{opportunity.EndDate | date : 'dd-MM-yyyy'}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="div-block">
+                                                <div class="col-left">
+                                                    <p>Description :</p>
+                                                </div>
+                                                <div class="col-right">
+                                                    <p>{{opportunity.Description}} word word word word word ttttttttttttt ttttttttttttt tttttttttttttttttt  tttttttttttt ttttttttt tttttttttt ttttttt</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="footer clearfix">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                                </div>
+                                                <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal fade" tabindex="-1" role="dialog" id="oppAddUpdate">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Opportunity</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="popup-data">
+                                        <table class="table table-responsive model-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td><label>Professions </label></td>
+                                                    <td>
+                                                        <div class="checkbox-inline" ng-repeat="innerProfession in IntialLoad.allProfessions">
+                                                            <label>
+                                                                <input type="checkbox" ng-model="professionsList" id="{{innerProfession.ProfessionId}}" /> {{innerProfession.ProfessionName}}
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Remuneration </label></td>
+                                                    <td><input ng-model="remuneration" type="text" id="txtRemuneration" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Dates :</label></td>
+                                                    <td><input id="startDate" ng-model="startDate" type="date" value="2016-11-01" /> To <input id="endDate" ng-model="endDate" type="date" value="2017-12-30" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label>Description </label></td>
+                                                    <td><input ng-model="description" type="text" id="txtDescription" /></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="div-block">
+                                            <div class="text-right">
+                                                <input type="button" id="btn-popup1" value="Save" class="btn btn-blue" ng-click="Save();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="bl-icon-close close-btn"></span>
+            </section>
+            <section ng-controller="aboutUsController">
+                <div class="bl-box">
+
+                    <div class="mask">
+                    </div>
+                    <div class="heading">
+                        <i class="ion-ios-people-outline hidden-xs"></i>
+                        <h2>About Us</h2>
+                    </div>
+                </div>
+                <div class="bl-content">
+                    <div class="row">
+
+                        <!--( b ) Profile Page Content -->
+                        <div class="content-container col-md-10 col-sm-12">
+                            <!--( A ) Story of Glory -->
+                            <div class="clearfix">
+                                <h2 class="small-heading">LEARN ABOUT US</h2>
+                                <div class="row">
+                                    <div class="col-lg-10 col-lg-offset-1 col-xs-10 col-xs-offset-1">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="video embed-responsive embed-responsive-4by3">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qTSDL94_Y7M" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="about-us-desc">
+                                                    <p>
+                                                        Quisque in tempor sapien, et cursus neque. Nunc pulvinar diam ac dapibus mollis. Etiam id iaculis lorem. Donec bibendum volutpat ante, eu consequat nisi suscipit at. Etiam interdum augue dolor
+                                                    </p>
+                                                    <p>
+                                                        Faliquam hendrerit a augue in suscipit. Pellen tesque id erat quis sapien a dignissim sollicitu din. Nulla B-4 mattis tortor sit amet lorem dolor  amer sollicitudin aliquam dignissim so much.
+                                                        Ut cursus massa at urnaac assin got pressed hadrtits lis estie. Sed aliquamellus tae ultrices condimentum, the Bootstrap 4 leo massa mollis estiegittis miristum nu endrerit a augue in su cipit.Pe lla eo massa mlli joss mama.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--( B ) What Can I Do -->
+                            <div class="clearfix">
+                                <h2 class="small-heading">OUR FUN FACTS</h2>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-xs-12">
+                                        <div class="row">
+                                            <div class="services col-md-4  col-xs-12">
+                                                <div class="facts">
+                                                    <div class="facts-overlay">
+                                                        <i class="fa fa-code fa-3x"></i>
+                                                        <p class="count">1956628</p>
+                                                        <p class="text-capitalize">lines of code</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Single Service Item [ END ]  -->
+                                            <div class="services col-md-4  col-xs-12">
+                                                <div class="facts">
+                                                    <div class="facts-overlay">
+                                                        <i class="fa fa-coffee fa-3x"></i>
+                                                        <p class="count">1473</p>
+                                                        <p class="text-capitalize">cups of coffee</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Single Service Item [ END ]  -->
+                                            <div class="services col-md-4  col-xs-12">
+                                                <div class="facts">
+                                                    <div class="facts-overlay">
+                                                        <i class="fa fa-cubes fa-3x"></i>
+                                                        <p class="count">500</p>
+                                                        <p class="text-capitalize">projects delivered</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Single Service Item [ END ]  -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix full-height">
+                                <h2 class="small-heading">MEET THE TEAM</h2>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                                        <div class="row">
+                                            <div class="col-md-4 col-xs-12">
+                                                <div class="team-member-box center-block text-center">
+                                                    <img src="../img/team_member1.jpg" class="img-responsive">
+                                                    <h4 class="text-capitalize">loras tyrel</h4>
+                                                    <p class="text-uppercase">founder and ceo</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-xs-12">
+                                                <div class="team-member-box center-block text-center">
+                                                    <img src="../img/team_member2.jpg" class="img-responsive">
+                                                    <h4 class="text-capitalize">john snow</h4>
+                                                    <p class="text-uppercase">head of attorney</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-xs-12">
+                                                <div class="team-member-box center-block text-center">
+                                                    <img src="../img/team_member3.jpg" class="img-responsive">
+                                                    <h4 class="text-capitalize">sansa stark</h4>
+                                                    <p class="text-uppercase">creative coder</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--( D ) Footer -->
+                            <div class="footer clearfix">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="bl-icon-close close-btn"></span>
+            </section>
+            <!-- Panel items for the works -->
+            <div class="bl-panel-items" id="bl-panel-work-items">
+                <div data-panel="panel-1">
+                    <div>
+                        <img src="images/1.jpg" />
+                        <h3>Fixie bespoke</h3>
+                        <p>Iphone artisan direct trade ethical Austin. Fixie bespoke banh mi ugh, deep v vinyl hashtag. Tumblr gentrify keffiyeh pop-up iphone twee biodiesel. Occupy american apparel freegan cliche. Mustache trust fund 8-bit jean shorts mumblecore thundercats. Pour-over small batch forage cray, banjo post-ironic flannel keffiyeh cred ethnic semiotics next level tousled fashion axe. Sustainable cardigan keytar fap bushwick bespoke.</p>
+                    </div>
+                </div>
+                <div data-panel="panel-2">
+                    <div>
+                        <img src="images/2.jpg" />
+                        <h3>Chillwave mustache</h3>
+                        <p>Squid vinyl scenester literally pug, hashtag tofu try-hard typewriter polaroid craft beer mlkshk cardigan photo booth PBR. Chillwave 90's gentrify american apparel carles disrupt. Pinterest semiotics single-origin coffee craft beer thundercats irony, tumblr bushwick intelligentsia pickled. Narwhal mustache godard master cleanse street art, occupy ugh selfies put a bird on it cray salvia four loko gluten-free shoreditch.</p>
+                    </div>
+                </div>
+                <div data-panel="panel-3">
+                    <div>
+                        <img src="images/3.jpg" />
+                        <h3>Austin hella</h3>
+                        <p>Ethical cray wayfarers leggings vice, seitan banksy small batch ethnic master cleanse. Pug chillwave etsy, scenester meh occupy blue bottle tousled blog tonx pinterest selvage mixtape swag cosby sweater. Synth tousled direct trade, hella Austin craft beer ugh chambray.</p>
+                    </div>
+                </div>
+                <div data-panel="panel-4">
+                    <div>
+                        <img src="images/4.jpg" />
+                        <h3>Brooklyn dreamcatcher</h3>
+                        <p>Fashion axe 90's pug fap. Blog wayfarers brooklyn dreamcatcher, bicycle rights retro YOLO. Wes anderson lomo 90's food truck 3 wolf moon, twee jean shorts. Iphone small batch twee wolf yr before they sold out. Brooklyn echo park cred, portland pug selvage flannel seitan tousled mcsweeney's.</p>
+                    </div>
+                </div>
+                <nav>
+                    <span class="bl-next-work">&gt; Next Project</span>
+                    <span class="bl-icon-close close-btn"></span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Say Something about you</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="popup-data">
+                        <table class="table table-responsive model-table">
+                            <tbody>
+                                <tr>
+                                    <td><label>Description</label></td>
+                                    <td><textarea class="form-control" rows="3"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Add Pics</label></td>
+                                    <td><input type="file" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="div-block">
+                            <div class="text-right">
+                                <input type="button" id="btn-popup1" value="Submit" class="btn btn-blue" onclick="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content login-modal-content">
+                <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="login-main-section">
+                    <div class="login-inner-section">
+                        <div class="logo-section">
+                            <img src="~/img/Badge.jpg" class="img-responsive res-image" />
+                            <img src="~/img/logo1.png" class="img-responsive logo-image" />
+
+                        </div>
+                    </div>
+                    <div class="login-inner-section">
+                        <div class="module form-module">
+                            <div class="tabs">
+                                <h3 class="login-tab"><a ui-sref="login" class="active">Login</a></h3>
+                                <h3 class="signup-tab"><a href="#signup-tab-content">Sign Up</a></h3>
+                            </div><!--.tabs-->
+                            <div class="tabs-content" ng-controller="loginController">
+                                <div id="login-tab-content" class="active">
+                                    <form name="userForm" ng-submit="login()" novalidate>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (userForm.$submitted || userForm.userName.$touched) && userForm.userName.$error.required || userForm.userName.$error.email}">
+                                                        <div class="material-field">
+                                                            <input type="email" name="userName" class="form-control material-textbox" placeholder=" " ng-model="loginData.userName" required>
+                                                            <label class="material-textlabel" for="">Email Id</label>
+                                                        </div>
+                                                        <div ng-show="userForm.$submitted || userForm.userName.$touched">
+                                                            <div ng-show="userForm.userName.$error.required" class="help-block">Email is required.</div>
+                                                            <div ng-show="userForm.userName.$error.email" class="help-block">Not valid email.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (userForm.$submitted || userForm.password.$touched) && userForm.password.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="password" name="password" class="form-control material-textbox" placeholder="" ng-model="loginData.password" required>
+                                                            <label class="material-textlabel" for="">Password</label>
+                                                        </div>
+                                                        <div ng-show="userForm.$submitted || userForm.password.$touched">
+                                                            <div ng-show="userForm.password.$error.required" class="help-block">Password is required.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn-login-blue"><i class="glyphicon glyphicon-lock"></i>&nbsp;Secure Login</button>
+                                        <span class="text-terms">By Logging in you agree to our T&C and Privacy Policy.</span>
+                                    </form>
+                                    <!--.login-form-->
+                                    <div class="help-text">
+                                        <p><a href="#">Forget your password?</a></p>
+                                    </div><!--.help-text-->
+                                </div><!--.login-tab-content-->
+                                <div id="signup-tab-content">
+                                    <form name="registerForm" ng-submit="registerSubmit()" novalidate>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.firstName.$touched) && registerForm.firstName.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="text" name="firstName" class="form-control material-textbox" placeholder="" ng-model="registerData.firstName" required>
+                                                            <label class="material-textlabel" for="">First Name</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.firstName.$touched">
+                                                            <div ng-show="registerForm.firstName.$error.required" class="help-block">First name is required.</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.email.$touched) && registerForm.email.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="email" name="email" class="form-control material-textbox" placeholder="" ng-model="registerData.email" required>
+                                                            <label class="material-textlabel" for="">Email Address</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.email.$touched">
+                                                            <div ng-show="registerForm.email.$error.required" class="help-block">Email is required.</div>
+                                                            <div ng-show="registerForm.email.$error.email" class="help-block">Not valid email.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.password.$touched) && registerForm.password.$error.required || registerForm.password.$error.minlength || registerForm.password.$error.pattern}">
+                                                        <div class="material-field">
+                                                            <input type="password" id="password" class="form-control material-textbox" name="password" ng-model="registerData.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="" required />
+                                                            <label class="material-textlabel" for="">Password</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.password.$touched">
+                                                            <div ng-show="registerForm.password.$error.required" class="help-block">Password is required.</div>
+                                                            <div ng-show="registerForm.password.$error.minlength" class="help-block">Password must be between 8 and 20 characters..</div>
+                                                            <div ng-show="registerForm.password.$error.pattern" class="help-block">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.profileType.$touched) && registerForm.profileType.$error.required}">
+
+
+                                                        <div class="mdl-selectfield">
+                                                            <i id="select-icon"></i>
+                                                            <select id="profile-dropdown-menu" name="profileType" id="txtProfileType" class="form-control" ng-model="registerData.profileType" required="">
+                                                                <option value="" selected>Choose your option</option>
+                                                                <option value="1">Option 1</option>
+                                                                <option value="2">Option 2</option>
+                                                                <option value="3">Option 3</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.profileType.$touched">
+                                                            <div ng-show="registerForm.profileType.$error.required" class="help-block">Select a profile type.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.lastName.$touched) && registerForm.lastName.$error.required}">
+                                                        <div class="material-field">
+
+                                                            <input type="text" name="lastName" class="form-control material-textbox" placeholder="" ng-model="registerData.lastName" required>
+                                                            <label class="material-textlabel" for="">Last Name</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.lastName.$touched">
+                                                            <div ng-show="registerForm.lastName.$error.required" class="help-block">Last name is required.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.phoneno.$touched) && registerForm.phoneno.$error.required || registerForm.phoneno.$error.minlength}">
+                                                        <div class="material-field">
+                                                            <input type="tel" name="phoneno" class="form-control material-textbox" placeholder="" ng-model="registerData.phoneno" required>
+                                                            <label class="material-textlabel" for="">Phone Number</label>
+                                                            <div ng-show="registerForm.$submitted ||  registerForm.phoneno.$touched">
+                                                                <div ng-show="registerForm.phoneno.$error.required" class="help-block">Mobile no is required.</div>
+                                                                <div ng-show="registerForm.phoneno.$error.minlength" class="help-block">Enter a 10 digits number.</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.password_c.$touched) && registerForm.password_c.$error.required || registerForm.password_c.$error.noMatch}">
+                                                            <div class="material-field">
+                                                                <input type="password" id="password_c" class="form-control material-textbox" name="password_c" ng-model="registerData.password_c" placeholder="" valid-password-c="registerData.password" required />
+                                                                <label class="material-textlabel" for="">Confirm Password</label>
+                                                            </div>
+                                                            <div ng-show="registerForm.$submitted ||  registerForm.password_c.$touched">
+                                                                <div ng-show="registerForm.password_c.$error.required" class="help-block">Confirm password is required.</div>
+                                                                <div ng-show="registerForm.password_c.$error.noMatch" class="help-block">Passwords do not match.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn-login-blue">
+                                                <i class="glyphicon glyphicon-lock"></i>&nbsp;Create your Account
+                                            </button>
+                                            <span class="text-terms">By Logging in you agree to our T&C and Privacy Policy.</span>
+                                    </form>
+                                    <!--.login-form-->
+                                    <div class="help-text">
+                                        <p>By signing up, you agree to our</p>
+                                        <p><a href="#">Terms of service</a></p>
+                                    </div><!--.help-text-->
+                                </div><!--.signup-tab-content-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!--.form-wrap-->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--
+    9 ) Javascript
+    - -->
+    @if (false)
+    {
+    <script src="~/Build/js/client-main-master.min.js"></script>
+    }
+    else
+    {
+    <script type="text/javascript" src="../Scripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+
+    <!-- 3rd party libraries -->
+    <script src="../app/vendors/angular.js"></script>
+    <script src="../app/vendors/angular-ui-router.js"></script>
+    <script src="../app/vendors/angular-base64.js"></script>
+    <script src="../app/vendors/angular-local-storage.min.js"></script>
+    <script src="../app/vendors/angular-toastr.tpls.min.js"></script>
+    <script src="../app/vendors/loading-bar.min.js"></script>
+    <script src="../app/app.js"></script>
+
+
+    <script src="../app/components/services/authService.js"></script>
+    <script src="../app/components/services/notificationService.js"></script>
+    <script src="../app/components/services/oppurtunitiesService.js"></script>
+    <script src="../app/components/services/portfolioService.js"></script>
+    <script src="../app/components/services/profileSearchService.js"></script>
+
+    <script src="../app/controller.js"></script>
+    <script src="../app/components/controllers/aboutUsController.js"></script>
+    <script src="../app/components/controllers/accountController.js"></script>
+    <script src="../app/components/controllers/oppurtunitiesController.js"></script>
+    <script src="../app/components/controllers/portfolioController.js"></script>
+    <script src="../app/components/controllers/contactController.js"></script>
+    <script src="../app/components/controllers/registrationController.js"></script>
+    <script src="../app/components/controllers/homeController.js"></script>
+    <script src="../app/components/controllers/profileSearchController.js"></script>
+
+    <script type="text/javascript" src="../Scripts/modernizr.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.popup.min.js"></script>
+    <script type="text/javascript" src="../Scripts/owl.carousel.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="../Scripts/contact.js"></script>
+    <script type="text/javascript" src="../Scripts/script.js"></script>
+
+    }
+    <script src="~/Scripts/script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.min.js"></script>*@
+    <script src="http://tympanus.net/codrops/adpacks/csscustom.js"></script>
+    <script src="http://tympanus.net/codrops/wp-content/plugins/oiopub-direct/js.php?type=banner&align=center&zone=1"></script>
+    <script src="../app/vendors/boxlayout.js"></script>
+
+    <script>
+        function openPopup() {
+            $('#btn-popup').modal('show');
+            $('#btn-popup').on('shown.bs.modal', function (e) {
+                $('.popup-data').css('.display', 'block');
+            });
+            $('#btn-popup').on('hiiden.bs.modal', function (e) {
+                $('.popup-data').css('.display', 'block');
+            })
+        }
+
+    </script>
+    <script>
+        $(document).on('click', function () {
+            Boxlayout.init();
+
+        });
+
+        $('#loginModal').on('shown.bs.modal', function (e) {
+            tab = $('.tabs h3 a');
+
+            tab.on('click', function (event) {
+                event.preventDefault();
+                tab.removeClass('active');
+                $(this).addClass('active');
+
+                tab_content = $(this).attr('href');
+                $('div[id$="tab-content"]').removeClass('active');
+                $(tab_content).addClass('active');
+            });
+            $('.material-textbox').on("focus", function () {
+                $(this).addClass('textbox-focused')
+            });
+
+            $('.material-textbox').on("blur", function () {
+                if ($(this).val() === '') {
+                    $(this).removeClass('textbox-focused')
+                }
+            });
+
+            var triggerOpen = $('#input-select');
+            var triggerClose = $('#profile-dropdown-menu').find('li');
+            var marka = $('#select-icon');
+
+        })
+    </script>
+</body>
+</html>

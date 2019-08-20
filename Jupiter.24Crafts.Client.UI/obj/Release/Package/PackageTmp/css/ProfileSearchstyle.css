@@ -1,0 +1,28 @@
+.autocompletedemoCustomTemplate .autocomplete-custom-template li {
+  border-bottom: 1px solid #ccc;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal; }
+
+.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
+  border-bottom-width: 0; }
+
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 2; }
+
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
+  height: 18px;
+  width: 18px; }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+*/
+.search-ccontainer{
+    width:500px;
+    margin:0 auto;
+}

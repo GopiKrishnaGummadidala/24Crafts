@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CraftsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementId" />
+    </Key>
+    <Property Name="AdvertisementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdvertisementType" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="AdvertisementUrl" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="IsApprovedBy" Type="bigint" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="AuditTrack">
+    <Key>
+      <PropertyRef Name="AuditTrackId" />
+    </Key>
+    <Property Name="AuditTrackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ByUserId" Type="bigint" Nullable="false" />
+    <Property Name="ToUserId" Type="bigint" Nullable="false" />
+    <Property Name="ConsumerEventId" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="BlockList">
+    <Key>
+      <PropertyRef Name="BlockId" />
+    </Key>
+    <Property Name="BlockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlockedByUserId" Type="bigint" Nullable="false" />
+    <Property Name="BlockedUserId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsApprovedAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateID" Type="bigint" />
+    <Property Name="CityName" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" />
+    <Property Name="Modified_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="ConsumerEvent">
+    <Key>
+      <PropertyRef Name="ConsumerEventId" />
+    </Key>
+    <Property Name="ConsumerEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventName" Type="varchar(max)" />
+    <Property Name="EventDescription" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateddDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" />
+    <Property Name="Modified_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="EmailOutbox">
+    <Key>
+      <PropertyRef Name="EmailOutboxID" />
+    </Key>
+    <Property Name="EmailOutboxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailTemplateID" Type="int" />
+    <Property Name="EmailFrom" Type="varchar" MaxLength="100" />
+    <Property Name="EmailTo" Type="varchar" MaxLength="3000" />
+    <Property Name="EmailCC" Type="varchar" MaxLength="3000" />
+    <Property Name="EmailSubject" Type="varchar" MaxLength="3000" />
+    <Property Name="EmailBody" Type="varchar(max)" />
+    <Property Name="DateSent" Type="date" />
+  </EntityType>
+  <EntityType Name="EmailTemplate">
+    <Key>
+      <PropertyRef Name="TemplateId" />
+    </Key>
+    <Property Name="TemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TemplateName" Type="varchar" MaxLength="100" />
+    <Property Name="TemplateHTML" Type="nvarchar(max)" />
+    <Property Name="ReplaceKeys" Type="varchar" MaxLength="500" />
+    <Property Name="EmailSubject" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="ExceptionLog">
+    <Key>
+      <PropertyRef Name="ExceptionId" />
+    </Key>
+    <Property Name="ExceptionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExceptionMsg" Type="varchar" MaxLength="500" />
+    <Property Name="ExceptionType" Type="varchar" MaxLength="250" />
+    <Property Name="ExceptionSource" Type="nvarchar(max)" />
+    <Property Name="ExceptionURL" Type="varchar" MaxLength="200" />
+    <Property Name="LogDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Language_User_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="int" />
+    <Property Name="ModifiedBy_UserID" Type="int" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="MainMenu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="NavigateURL" Type="varchar" MaxLength="100" />
+    <Property Name="Script" Type="varchar" MaxLength="500" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" />
+    <Property Name="ModifiedBy_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="MessageDeliveryConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryHours" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedByUserId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+    <Property Name="UserType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="FromUserId" Type="bigint" Nullable="false" />
+    <Property Name="ToUserId" Type="bigint" Nullable="false" />
+    <Property Name="IsViewed" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notification" Type="varchar" MaxLength="500" />
+    <Property Name="ToUserId" Type="bigint" Nullable="false" />
+    <Property Name="IsViewed" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Opportunities">
+    <Key>
+      <PropertyRef Name="OpportunityId" />
+    </Key>
+    <Property Name="OpportunityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Remuneration" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedByUserId" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="IsApprovedBy" Type="bigint" />
+    <Property Name="IsApprovedComments" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="OpportunityConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsPaymentUser" Type="bit" Nullable="false" />
+    <Property Name="Count" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedByUserId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="OpportunityResponse_User_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpportunityId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="OTP">
+    <Key>
+      <PropertyRef Name="OtpID" />
+    </Key>
+    <Property Name="OtpID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MobileNum" Type="varchar" MaxLength="20" />
+    <Property Name="OTP" Type="varchar" MaxLength="10" />
+    <Property Name="IssuedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ProfessionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfessionName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" />
+    <Property Name="Modified_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Profession_Opportunity_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpportunityId" Type="int" Nullable="false" />
+    <Property Name="ProfessionID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Profession_User_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="ProfessionID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="ProfileViews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WhoseUserId" Type="bigint" Nullable="false" />
+    <Property Name="ByWhomUserId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="int" />
+    <Property Name="ModifiedBy_UserID" Type="int" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Role_Menu_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="bigint" />
+    <Property Name="MainMenuID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="SpamList">
+    <Key>
+      <PropertyRef Name="SpamId" />
+    </Key>
+    <Property Name="SpamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ByUserId" Type="bigint" Nullable="false" />
+    <Property Name="SpamUserId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsApprovedAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" />
+    <Property Name="StateName" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" />
+    <Property Name="Modified_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="TokenKey" Type="varchar" MaxLength="100" />
+    <Property Name="IssuedTime" Type="datetime" />
+    <Property Name="ExpiredTime" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="EmailID" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNum" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" />
+    <Property Name="ProfileType" Type="int" />
+    <Property Name="IsContentApproverApproved" Type="bit" />
+    <Property Name="IsAdminApproved" Type="bit" />
+    <Property Name="IsPaymentUser" Type="bit" />
+    <Property Name="IsProfileCreated" Type="bit" />
+    <Property Name="Views" Type="int" />
+    <Property Name="NumOfOpportunitiesCreated" Type="int" />
+    <Property Name="IsEmailApproved" Type="bit" />
+    <Property Name="CustomerId" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsImageVideoContentModified" Type="bit" />
+    <Property Name="ContentApproverComments" Type="varchar" MaxLength="300" />
+    <Property Name="AdminComments" Type="varchar" MaxLength="300" />
+    <Property Name="LastSignIn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User_Role_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="RoleID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy_UserID" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="bigint" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="ModifiedDate" Type="date" />
+    <Property Name="IsAccessNewUsers" Type="bit" />
+    <Property Name="IsAccessImageVideoUpdate" Type="bit" />
+    <Property Name="IsAccessReportedSpam" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="MaritalStatus" Type="int" />
+    <Property Name="Hobbies" Type="varchar" MaxLength="1000" />
+    <Property Name="SelfDescription" Type="varchar(max)" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="ExpYear" Type="int" />
+    <Property Name="ExpMonth" Type="int" />
+    <Property Name="CurrAssignment" Type="varchar" MaxLength="5000" />
+    <Property Name="LastAssignment" Type="varchar" MaxLength="5000" />
+    <Property Name="AvailabilityFrom" Type="date" />
+    <Property Name="AvailabilityTo" Type="date" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="PrimaryProfessionId" Type="int" />
+    <Property Name="GoogleDriveUrl" Type="varchar" MaxLength="100" />
+    <Property Name="YputubeChannel" Type="varchar" MaxLength="100" />
+    <Property Name="Remunaration" Type="varchar" MaxLength="10" />
+    <Property Name="CountryCode" Type="int" />
+  </EntityType>
+  <Association Name="FK_BlockList_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="BlockList" Type="Self.BlockList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="BlockList">
+        <PropertyRef Name="BlockedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlockList_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="BlockList" Type="Self.BlockList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="BlockList">
+        <PropertyRef Name="BlockedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_User_Tie_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="Language_User_Tie" Type="Self.Language_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Language_User_Tie">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_User_Tie_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Language_User_Tie" Type="Self.Language_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Language_User_Tie">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="FromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opportunities_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Opportunities" Type="Self.Opportunities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Opportunities">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpportunityResponse_User_Tie_Opportunities">
+    <End Role="Opportunities" Type="Self.Opportunities" Multiplicity="1" />
+    <End Role="OpportunityResponse_User_Tie" Type="Self.OpportunityResponse_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunities">
+        <PropertyRef Name="OpportunityId" />
+      </Principal>
+      <Dependent Role="OpportunityResponse_User_Tie">
+        <PropertyRef Name="OpportunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpportunityResponse_User_Tie_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="OpportunityResponse_User_Tie" Type="Self.OpportunityResponse_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="OpportunityResponse_User_Tie">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_Opportunity_Tie_Opportunities">
+    <End Role="Opportunities" Type="Self.Opportunities" Multiplicity="1" />
+    <End Role="Profession_Opportunity_Tie" Type="Self.Profession_Opportunity_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunities">
+        <PropertyRef Name="OpportunityId" />
+      </Principal>
+      <Dependent Role="Profession_Opportunity_Tie">
+        <PropertyRef Name="OpportunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_Opportunity_Tie_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
+    <End Role="Profession_Opportunity_Tie" Type="Self.Profession_Opportunity_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Profession_Opportunity_Tie">
+        <PropertyRef Name="ProfessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_User_Tie_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
+    <End Role="Profession_User_Tie" Type="Self.Profession_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Profession_User_Tie">
+        <PropertyRef Name="ProfessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_User_Tie_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Profession_User_Tie" Type="Self.Profession_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Profession_User_Tie">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileViews_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProfileViews" Type="Self.ProfileViews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ProfileViews">
+        <PropertyRef Name="WhoseUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileViews_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProfileViews" Type="Self.ProfileViews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ProfileViews">
+        <PropertyRef Name="ByWhomUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Menu_Tie_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Role_Menu_Tie" Type="Self.Role_Menu_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Role_Menu_Tie">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpamList_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="SpamList" Type="Self.SpamList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SpamList">
+        <PropertyRef Name="ByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpamList_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="SpamList" Type="Self.SpamList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SpamList">
+        <PropertyRef Name="SpamUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Menu_Tie_MainMenu">
+    <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="1" />
+    <End Role="Role_Menu_Tie" Type="Self.Role_Menu_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainMenu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="Role_Menu_Tie">
+        <PropertyRef Name="MainMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role_Tie_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User_Role_Tie" Type="Self.User_Role_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User_Role_Tie">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role_Tie_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_Role_Tie" Type="Self.User_Role_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="User_Role_Tie">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfo_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CraftsModelStoreContainer">
+    <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditTrack" EntityType="Self.AuditTrack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlockList" EntityType="Self.BlockList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsumerEvent" EntityType="Self.ConsumerEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailOutbox" EntityType="Self.EmailOutbox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailTemplate" EntityType="Self.EmailTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExceptionLog" EntityType="Self.ExceptionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language_User_Tie" EntityType="Self.Language_User_Tie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainMenu" EntityType="Self.MainMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MessageDeliveryConfiguration" EntityType="Self.MessageDeliveryConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Opportunities" EntityType="Self.Opportunities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpportunityConfiguration" EntityType="Self.OpportunityConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpportunityResponse_User_Tie" EntityType="Self.OpportunityResponse_User_Tie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OTP" EntityType="Self.OTP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profession" EntityType="Self.Profession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profession_Opportunity_Tie" EntityType="Self.Profession_Opportunity_Tie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profession_User_Tie" EntityType="Self.Profession_User_Tie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfileViews" EntityType="Self.ProfileViews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_Menu_Tie" EntityType="Self.Role_Menu_Tie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpamList" EntityType="Self.SpamList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Role_Tie" EntityType="Self.User_Role_Tie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BlockList_User" Association="Self.FK_BlockList_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="BlockList" EntitySet="BlockList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlockList_User1" Association="Self.FK_BlockList_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="BlockList" EntitySet="BlockList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_User_Tie_Languages" Association="Self.FK_Language_User_Tie_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Language_User_Tie" EntitySet="Language_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_User_Tie_User" Association="Self.FK_Language_User_Tie_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Language_User_Tie" EntitySet="Language_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_User" Association="Self.FK_Messages_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_User1" Association="Self.FK_Messages_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_User1" Association="Self.FK_Notifications_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opportunities_User" Association="Self.FK_Opportunities_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Opportunities" EntitySet="Opportunities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpportunityResponse_User_Tie_Opportunities" Association="Self.FK_OpportunityResponse_User_Tie_Opportunities">
+      <End Role="Opportunities" EntitySet="Opportunities" />
+      <End Role="OpportunityResponse_User_Tie" EntitySet="OpportunityResponse_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpportunityResponse_User_Tie_User" Association="Self.FK_OpportunityResponse_User_Tie_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="OpportunityResponse_User_Tie" EntitySet="OpportunityResponse_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_Opportunity_Tie_Opportunities" Association="Self.FK_Profession_Opportunity_Tie_Opportunities">
+      <End Role="Opportunities" EntitySet="Opportunities" />
+      <End Role="Profession_Opportunity_Tie" EntitySet="Profession_Opportunity_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_Opportunity_Tie_Profession" Association="Self.FK_Profession_Opportunity_Tie_Profession">
+      <End Role="Profession" EntitySet="Profession" />
+      <End Role="Profession_Opportunity_Tie" EntitySet="Profession_Opportunity_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_User_Tie_Profession" Association="Self.FK_Profession_User_Tie_Profession">
+      <End Role="Profession" EntitySet="Profession" />
+      <End Role="Profession_User_Tie" EntitySet="Profession_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_User_Tie_User" Association="Self.FK_Profession_User_Tie_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Profession_User_Tie" EntitySet="Profession_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileViews_User" Association="Self.FK_ProfileViews_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProfileViews" EntitySet="ProfileViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileViews_User1" Association="Self.FK_ProfileViews_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProfileViews" EntitySet="ProfileViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Menu_Tie_Role" Association="Self.FK_Role_Menu_Tie_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Role_Menu_Tie" EntitySet="Role_Menu_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpamList_User" Association="Self.FK_SpamList_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SpamList" EntitySet="SpamList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpamList_User1" Association="Self.FK_SpamList_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="SpamList" EntitySet="SpamList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Menu_Tie_MainMenu" Association="Self.FK_User_Menu_Tie_MainMenu">
+      <End Role="MainMenu" EntitySet="MainMenu" />
+      <End Role="Role_Menu_Tie" EntitySet="Role_Menu_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role_Tie_Role" Association="Self.FK_User_Role_Tie_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User_Role_Tie" EntitySet="User_Role_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role_Tie_User" Association="Self.FK_User_Role_Tie_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Role_Tie" EntitySet="User_Role_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfo_User" Association="Self.FK_UserInfo_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserInfo" EntitySet="UserInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

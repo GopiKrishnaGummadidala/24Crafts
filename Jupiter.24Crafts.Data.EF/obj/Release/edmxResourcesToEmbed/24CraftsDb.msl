@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CraftsModelStoreContainer" CdmEntityContainer="CratfsDb">
+    <EntitySetMapping Name="MainMenus">
+      <EntityTypeMapping TypeName="CraftsModel.MainMenu">
+        <MappingFragment StoreEntitySet="MainMenu">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NavigateURL" ColumnName="NavigateURL" />
+          <ScalarProperty Name="Script" ColumnName="Script" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CraftsModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Role_Tie">
+      <EntityTypeMapping TypeName="CraftsModel.User_Role_Tie">
+        <MappingFragment StoreEntitySet="User_Role_Tie">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageDeliveryConfigurations">
+      <EntityTypeMapping TypeName="CraftsModel.MessageDeliveryConfiguration">
+        <MappingFragment StoreEntitySet="MessageDeliveryConfiguration">
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DeliveryHours" ColumnName="DeliveryHours" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="CraftsModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsViewed" ColumnName="IsViewed" />
+          <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+          <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opportunities">
+      <EntityTypeMapping TypeName="CraftsModel.Opportunity">
+        <MappingFragment StoreEntitySet="Opportunities">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="Remuneration" ColumnName="Remuneration" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityConfigurations">
+      <EntityTypeMapping TypeName="CraftsModel.OpportunityConfiguration">
+        <MappingFragment StoreEntitySet="OpportunityConfiguration">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="IsPaymentUser" ColumnName="IsPaymentUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityResponse_User_Tie">
+      <EntityTypeMapping TypeName="CraftsModel.OpportunityResponse_User_Tie">
+        <MappingFragment StoreEntitySet="OpportunityResponse_User_Tie">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professions">
+      <EntityTypeMapping TypeName="CraftsModel.Profession">
+        <MappingFragment StoreEntitySet="Profession">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Modified_UserID" ColumnName="Modified_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+          <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profession_Opportunity_Tie">
+      <EntityTypeMapping TypeName="CraftsModel.Profession_Opportunity_Tie">
+        <MappingFragment StoreEntitySet="Profession_Opportunity_Tie">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileViews">
+      <EntityTypeMapping TypeName="CraftsModel.ProfileView">
+        <MappingFragment StoreEntitySet="ProfileViews">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ByWhomUserId" ColumnName="ByWhomUserId" />
+          <ScalarProperty Name="WhoseUserId" ColumnName="WhoseUserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Menu_Tie">
+      <EntityTypeMapping TypeName="CraftsModel.Role_Menu_Tie">
+        <MappingFragment StoreEntitySet="Role_Menu_Tie">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MainMenuID" ColumnName="MainMenuID" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpamLists">
+      <EntityTypeMapping TypeName="CraftsModel.SpamList">
+        <MappingFragment StoreEntitySet="SpamList">
+          <ScalarProperty Name="IsApprovedAdmin" ColumnName="IsApprovedAdmin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SpamUserId" ColumnName="SpamUserId" />
+          <ScalarProperty Name="ByUserId" ColumnName="ByUserId" />
+          <ScalarProperty Name="SpamId" ColumnName="SpamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="CraftsModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ExpiredTime" ColumnName="ExpiredTime" />
+          <ScalarProperty Name="IssuedTime" ColumnName="IssuedTime" />
+          <ScalarProperty Name="TokenKey" ColumnName="TokenKey" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Language_User_Tie">
+      <EntityTypeMapping TypeName="CraftsModel.Language_User_Tie">
+        <MappingFragment StoreEntitySet="Language_User_Tie">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="CraftsModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CraftsModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="AdminComments" ColumnName="AdminComments" />
+          <ScalarProperty Name="ContentApproverComments" ColumnName="ContentApproverComments" />
+          <ScalarProperty Name="IsImageVideoContentModified" ColumnName="IsImageVideoContentModified" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="IsEmailApproved" ColumnName="IsEmailApproved" />
+          <ScalarProperty Name="NumOfOpportunitiesCreated" ColumnName="NumOfOpportunitiesCreated" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="IsProfileCreated" ColumnName="IsProfileCreated" />
+          <ScalarProperty Name="IsPaymentUser" ColumnName="IsPaymentUser" />
+          <ScalarProperty Name="IsAdminApproved" ColumnName="IsAdminApproved" />
+          <ScalarProperty Name="IsContentApproverApproved" ColumnName="IsContentApproverApproved" />
+          <ScalarProperty Name="ProfileType" ColumnName="ProfileType" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoes">
+      <EntityTypeMapping TypeName="CraftsModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="Remunaration" ColumnName="Remunaration" />
+          <ScalarProperty Name="YputubeChannel" ColumnName="YputubeChannel" />
+          <ScalarProperty Name="GoogleDriveUrl" ColumnName="GoogleDriveUrl" />
+          <ScalarProperty Name="PrimaryProfessionId" ColumnName="PrimaryProfessionId" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AvailabilityTo" ColumnName="AvailabilityTo" />
+          <ScalarProperty Name="AvailabilityFrom" ColumnName="AvailabilityFrom" />
+          <ScalarProperty Name="LastAssignment" ColumnName="LastAssignment" />
+          <ScalarProperty Name="CurrAssignment" ColumnName="CurrAssignment" />
+          <ScalarProperty Name="ExpMonth" ColumnName="ExpMonth" />
+          <ScalarProperty Name="ExpYear" ColumnName="ExpYear" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="SelfDescription" ColumnName="SelfDescription" />
+          <ScalarProperty Name="Hobbies" ColumnName="Hobbies" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExceptionLogs">
+      <EntityTypeMapping TypeName="CraftsModel.ExceptionLog">
+        <MappingFragment StoreEntitySet="ExceptionLog">
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="ExceptionURL" ColumnName="ExceptionURL" />
+          <ScalarProperty Name="ExceptionSource" ColumnName="ExceptionSource" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="ExceptionMsg" ColumnName="ExceptionMsg" />
+          <ScalarProperty Name="ExceptionId" ColumnName="ExceptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="CraftsModel.EmailTemplate">
+        <MappingFragment StoreEntitySet="EmailTemplate">
+          <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+          <ScalarProperty Name="ReplaceKeys" ColumnName="ReplaceKeys" />
+          <ScalarProperty Name="TemplateHTML" ColumnName="TemplateHTML" />
+          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="CraftsModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Modified_UserID" ColumnName="Modified_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="CraftsModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Modified_UserID" ColumnName="Modified_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="CraftsModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Modified_UserID" ColumnName="Modified_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTPs">
+      <EntityTypeMapping TypeName="CraftsModel.OTP">
+        <MappingFragment StoreEntitySet="OTP">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IssuedDate" ColumnName="IssuedDate" />
+          <ScalarProperty Name="OTP1" ColumnName="OTP" />
+          <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+          <ScalarProperty Name="OtpID" ColumnName="OtpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailOutboxes">
+      <EntityTypeMapping TypeName="CraftsModel.EmailOutbox">
+        <MappingFragment StoreEntitySet="EmailOutbox">
+          <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+          <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+          <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+          <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
+          <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+          <ScalarProperty Name="EmailTemplateID" ColumnName="EmailTemplateID" />
+          <ScalarProperty Name="EmailOutboxID" ColumnName="EmailOutboxID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlockLists">
+      <EntityTypeMapping TypeName="CraftsModel.BlockList">
+        <MappingFragment StoreEntitySet="BlockList">
+          <ScalarProperty Name="IsApprovedAdmin" ColumnName="IsApprovedAdmin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="BlockedUserId" ColumnName="BlockedUserId" />
+          <ScalarProperty Name="BlockedByUserId" ColumnName="BlockedByUserId" />
+          <ScalarProperty Name="BlockId" ColumnName="BlockId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="CraftsModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsViewed" ColumnName="IsViewed" />
+          <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+          <ScalarProperty Name="Notification1" ColumnName="Notification" />
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profession_User_Tie">
+      <EntityTypeMapping TypeName="CraftsModel.Profession_User_Tie">
+        <MappingFragment StoreEntitySet="Profession_User_Tie">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy_UserID" ColumnName="ModifiedBy_UserID" />
+          <ScalarProperty Name="CreatedBy_UserID" ColumnName="CreatedBy_UserID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

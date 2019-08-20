@@ -1,0 +1,170 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{EBBC4EE8-6E88-49C1-9F34-5CAE7D24F9D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{EB37B49B-71C4-4D51-8E2B-4DB4C561FE3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{587C0A08-6CAC-4F7A-8C30-FB6F62450105}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{458967FE-0867-468D-8097-6CF6C2EBFA30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{98890579-223E-438B-BBDE-2D2C6B2D844F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A8C9ABA0-32D1-48E5-88A7-D08C0BE63379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Business.Logic", "Jupiter.24Crafts.Business.Logic\Jupiter.24Crafts.Business.Logic.csproj", "{123CF9E4-8870-4850-B091-91E1F0D77A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Business.Models", "Jupiter.24Crafts.Business.Models\Jupiter.24Crafts.Business.Models.csproj", "{AF29263F-471D-4DC8-A161-6645E599C43C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Common.Resources", "Jupiter.24Crafts.Common.Resources\Jupiter.24Crafts.Common.Resources.csproj", "{2BCBBE7B-E02F-4D59-B1E7-B7BC4F25F9A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Common.Utilities", "Jupiter.24Crafts.Common.Utilities\Jupiter.24Crafts.Common.Utilities.csproj", "{5F4C4D0F-7C72-4D5E-AB99-9B0D318CC2F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{00CEB58E-95CF-4FC8-8391-58517F29443E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{FA7D6951-7141-4742-9C99-FD80BFA0EF90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Data.EF", "Jupiter.24Crafts.Data.EF\Jupiter.24Crafts.Data.EF.csproj", "{D3974987-CF96-48B4-B65D-BF931C1970D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Data.Dtos", "Jupiter.24Crafts.Data.Dtos\Jupiter.24Crafts.Data.Dtos.csproj", "{52736267-FA0B-4B67-A20D-856EE82B204C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Data.Repositories", "Jupiter.24Crafts.Data.Repositories\Jupiter.24Crafts.Data.Repositories.csproj", "{98312271-8F15-4DFC-B5D4-21C7F0473CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Data.UnitOfWork", "Jupiter.24Crafts.Data.UnitOfWork\Jupiter.24Crafts.Data.UnitOfWork.csproj", "{B816AA22-9646-4604-AC32-668194541168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Service.Api.Tests", "Jupiter.24Crafts.Service.Api.Tests\Jupiter.24Crafts.Service.Api.Tests.csproj", "{E954A2F5-195D-4DFB-8D7D-E297ECA5A5DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Client.UI", "Jupiter.24Crafts.Client.UI\Jupiter.24Crafts.Client.UI.csproj", "{CA79D753-E9C7-4C64-8DBB-7155829110CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter.24Crafts.Service.Api", "Jupiter.24Crafts.Service.Api\Jupiter.24Crafts.Service.Api.csproj", "{2B5FFBE6-803B-4D6C-9920-6E8C3470E871}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C51B006E-BDD5-47B6-ACD7-90362A388BBC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://arunazure.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Jupiter.24Crafts.Business.Logic\\Jupiter.24Crafts.Business.Logic.csproj
+		SccProjectTopLevelParentUniqueName1 = Jupiter.24Crafts.sln
+		SccProjectName1 = Jupiter.24Crafts.Business.Logic
+		SccLocalPath1 = Jupiter.24Crafts.Business.Logic
+		SccProjectUniqueName2 = Jupiter.24Crafts.Business.Models\\Jupiter.24Crafts.Business.Models.csproj
+		SccProjectTopLevelParentUniqueName2 = Jupiter.24Crafts.sln
+		SccProjectName2 = Jupiter.24Crafts.Business.Models
+		SccLocalPath2 = Jupiter.24Crafts.Business.Models
+		SccProjectUniqueName3 = Jupiter.24Crafts.Client.UI\\Jupiter.24Crafts.Client.UI.csproj
+		SccProjectTopLevelParentUniqueName3 = Jupiter.24Crafts.sln
+		SccProjectName3 = Jupiter.24Crafts.Client.UI
+		SccLocalPath3 = Jupiter.24Crafts.Client.UI
+		SccProjectUniqueName4 = Jupiter.24Crafts.Common.Resources\\Jupiter.24Crafts.Common.Resources.csproj
+		SccProjectTopLevelParentUniqueName4 = Jupiter.24Crafts.sln
+		SccProjectName4 = Jupiter.24Crafts.Common.Resources
+		SccLocalPath4 = Jupiter.24Crafts.Common.Resources
+		SccProjectUniqueName5 = Jupiter.24Crafts.Common.Utilities\\Jupiter.24Crafts.Common.Utilities.csproj
+		SccProjectTopLevelParentUniqueName5 = Jupiter.24Crafts.sln
+		SccProjectName5 = Jupiter.24Crafts.Common.Utilities
+		SccLocalPath5 = Jupiter.24Crafts.Common.Utilities
+		SccProjectUniqueName6 = Jupiter.24Crafts.Data.Dtos\\Jupiter.24Crafts.Data.Dtos.csproj
+		SccProjectTopLevelParentUniqueName6 = Jupiter.24Crafts.sln
+		SccProjectName6 = Jupiter.24Crafts.Data.Dtos
+		SccLocalPath6 = Jupiter.24Crafts.Data.Dtos
+		SccProjectUniqueName7 = Jupiter.24Crafts.Data.EF\\Jupiter.24Crafts.Data.EF.csproj
+		SccProjectTopLevelParentUniqueName7 = Jupiter.24Crafts.sln
+		SccProjectName7 = Jupiter.24Crafts.Data.EF
+		SccLocalPath7 = Jupiter.24Crafts.Data.EF
+		SccProjectUniqueName8 = Jupiter.24Crafts.Data.Repositories\\Jupiter.24Crafts.Data.Repositories.csproj
+		SccProjectTopLevelParentUniqueName8 = Jupiter.24Crafts.sln
+		SccProjectName8 = Jupiter.24Crafts.Data.Repositories
+		SccLocalPath8 = Jupiter.24Crafts.Data.Repositories
+		SccProjectUniqueName9 = Jupiter.24Crafts.Data.UnitOfWork\\Jupiter.24Crafts.Data.UnitOfWork.csproj
+		SccProjectTopLevelParentUniqueName9 = Jupiter.24Crafts.sln
+		SccProjectName9 = Jupiter.24Crafts.Data.UnitOfWork
+		SccLocalPath9 = Jupiter.24Crafts.Data.UnitOfWork
+		SccProjectUniqueName10 = Jupiter.24Crafts.Service.Api.Tests\\Jupiter.24Crafts.Service.Api.Tests.csproj
+		SccProjectTopLevelParentUniqueName10 = Jupiter.24Crafts.sln
+		SccProjectName10 = Jupiter.24Crafts.Service.Api.Tests
+		SccLocalPath10 = Jupiter.24Crafts.Service.Api.Tests
+		SccProjectUniqueName11 = Jupiter.24Crafts.Service.Api\\Jupiter.24Crafts.Service.Api.csproj
+		SccProjectTopLevelParentUniqueName11 = Jupiter.24Crafts.sln
+		SccProjectName11 = Jupiter.24Crafts.Service.Api
+		SccLocalPath11 = Jupiter.24Crafts.Service.Api
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{123CF9E4-8870-4850-B091-91E1F0D77A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123CF9E4-8870-4850-B091-91E1F0D77A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123CF9E4-8870-4850-B091-91E1F0D77A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123CF9E4-8870-4850-B091-91E1F0D77A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF29263F-471D-4DC8-A161-6645E599C43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF29263F-471D-4DC8-A161-6645E599C43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF29263F-471D-4DC8-A161-6645E599C43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF29263F-471D-4DC8-A161-6645E599C43C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BCBBE7B-E02F-4D59-B1E7-B7BC4F25F9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BCBBE7B-E02F-4D59-B1E7-B7BC4F25F9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BCBBE7B-E02F-4D59-B1E7-B7BC4F25F9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BCBBE7B-E02F-4D59-B1E7-B7BC4F25F9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F4C4D0F-7C72-4D5E-AB99-9B0D318CC2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4C4D0F-7C72-4D5E-AB99-9B0D318CC2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4C4D0F-7C72-4D5E-AB99-9B0D318CC2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4C4D0F-7C72-4D5E-AB99-9B0D318CC2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3974987-CF96-48B4-B65D-BF931C1970D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3974987-CF96-48B4-B65D-BF931C1970D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3974987-CF96-48B4-B65D-BF931C1970D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3974987-CF96-48B4-B65D-BF931C1970D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52736267-FA0B-4B67-A20D-856EE82B204C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52736267-FA0B-4B67-A20D-856EE82B204C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52736267-FA0B-4B67-A20D-856EE82B204C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52736267-FA0B-4B67-A20D-856EE82B204C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98312271-8F15-4DFC-B5D4-21C7F0473CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98312271-8F15-4DFC-B5D4-21C7F0473CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98312271-8F15-4DFC-B5D4-21C7F0473CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98312271-8F15-4DFC-B5D4-21C7F0473CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B816AA22-9646-4604-AC32-668194541168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B816AA22-9646-4604-AC32-668194541168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B816AA22-9646-4604-AC32-668194541168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B816AA22-9646-4604-AC32-668194541168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E954A2F5-195D-4DFB-8D7D-E297ECA5A5DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E954A2F5-195D-4DFB-8D7D-E297ECA5A5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E954A2F5-195D-4DFB-8D7D-E297ECA5A5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E954A2F5-195D-4DFB-8D7D-E297ECA5A5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA79D753-E9C7-4C64-8DBB-7155829110CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA79D753-E9C7-4C64-8DBB-7155829110CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA79D753-E9C7-4C64-8DBB-7155829110CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA79D753-E9C7-4C64-8DBB-7155829110CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B5FFBE6-803B-4D6C-9920-6E8C3470E871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B5FFBE6-803B-4D6C-9920-6E8C3470E871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B5FFBE6-803B-4D6C-9920-6E8C3470E871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B5FFBE6-803B-4D6C-9920-6E8C3470E871}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{123CF9E4-8870-4850-B091-91E1F0D77A6F} = {EBBC4EE8-6E88-49C1-9F34-5CAE7D24F9D2}
+		{AF29263F-471D-4DC8-A161-6645E599C43C} = {EBBC4EE8-6E88-49C1-9F34-5CAE7D24F9D2}
+		{2BCBBE7B-E02F-4D59-B1E7-B7BC4F25F9A5} = {EB37B49B-71C4-4D51-8E2B-4DB4C561FE3C}
+		{5F4C4D0F-7C72-4D5E-AB99-9B0D318CC2F7} = {EB37B49B-71C4-4D51-8E2B-4DB4C561FE3C}
+		{00CEB58E-95CF-4FC8-8391-58517F29443E} = {587C0A08-6CAC-4F7A-8C30-FB6F62450105}
+		{FA7D6951-7141-4742-9C99-FD80BFA0EF90} = {00CEB58E-95CF-4FC8-8391-58517F29443E}
+		{D3974987-CF96-48B4-B65D-BF931C1970D9} = {FA7D6951-7141-4742-9C99-FD80BFA0EF90}
+		{52736267-FA0B-4B67-A20D-856EE82B204C} = {587C0A08-6CAC-4F7A-8C30-FB6F62450105}
+		{98312271-8F15-4DFC-B5D4-21C7F0473CD7} = {587C0A08-6CAC-4F7A-8C30-FB6F62450105}
+		{B816AA22-9646-4604-AC32-668194541168} = {587C0A08-6CAC-4F7A-8C30-FB6F62450105}
+		{E954A2F5-195D-4DFB-8D7D-E297ECA5A5DA} = {A8C9ABA0-32D1-48E5-88A7-D08C0BE63379}
+		{CA79D753-E9C7-4C64-8DBB-7155829110CA} = {98890579-223E-438B-BBDE-2D2C6B2D844F}
+		{2B5FFBE6-803B-4D6C-9920-6E8C3470E871} = {458967FE-0867-468D-8097-6CF6C2EBFA30}
+	EndGlobalSection
+EndGlobal

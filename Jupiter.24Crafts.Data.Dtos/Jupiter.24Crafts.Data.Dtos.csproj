@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52736267-FA0B-4B67-A20D-856EE82B204C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jupiter._24Crafts.Data.Dtos</RootNamespace>
+    <AssemblyName>Jupiter.24Crafts.Data.Dtos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\MainMenuDto.cs" />
+    <Compile Include="Account\RegisterDto.cs" />
+    <Compile Include="Account\ResponseRoleDto.cs" />
+    <Compile Include="Account\ResponseTokenDto.cs" />
+    <Compile Include="Account\ResponseUserDto.cs" />
+    <Compile Include="Account\RoleMenuTieDto.cs" />
+    <Compile Include="Account\TokenDto.cs" />
+    <Compile Include="Account\UserDto.cs" />
+    <Compile Include="Common\ActiveProfileDto.cs" />
+    <Compile Include="Common\AdminUserResponseDto.cs" />
+    <Compile Include="Common\AdvertisementDto.cs" />
+    <Compile Include="Common\BlockDto.cs" />
+    <Compile Include="Common\CityDto.cs" />
+    <Compile Include="Common\ContentApproverUserDto.cs" />
+    <Compile Include="Common\ContentApproverUserResponseDto.cs" />
+    <Compile Include="Common\CountryDto.cs" />
+    <Compile Include="Common\CountryWrapperDto.cs" />
+    <Compile Include="Common\MessageDeliveryConfigurationDto.cs" />
+    <Compile Include="Common\MessagesDto.cs" />
+    <Compile Include="Common\NotificationDto.cs" />
+    <Compile Include="Common\SpamDto.cs" />
+    <Compile Include="Common\StateDto.cs" />
+    <Compile Include="Common\StatsOpportunityResponseDto.cs" />
+    <Compile Include="Common\StatsProfileResponseDto.cs" />
+    <Compile Include="Opportunities\ApplyOpportunityDto.cs" />
+    <Compile Include="Opportunities\OpportunityDto.cs" />
+    <Compile Include="Opportunities\OpportunityResponseDto.cs" />
+    <Compile Include="Opportunities\SearchOpportunityRequestDto.cs" />
+    <Compile Include="Portfolio\LanguageDto.cs" />
+    <Compile Include="Portfolio\PortfolioDto.cs" />
+    <Compile Include="Portfolio\ProfessionDto.cs" />
+    <Compile Include="Portfolio\ProfileResponseDto.cs" />
+    <Compile Include="Portfolio\SearchProfileRequestDto.cs" />
+    <Compile Include="Portfolio\UserInfoDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

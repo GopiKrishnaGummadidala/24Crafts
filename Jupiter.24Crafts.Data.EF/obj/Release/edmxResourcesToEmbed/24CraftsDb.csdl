@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CraftsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MainMenu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NavigateURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Script" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" />
+    <Property Name="ModifiedBy_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Role_Menu_Tie" Relationship="CraftsModel.FK_User_Menu_Tie_MainMenu" FromRole="MainMenu" ToRole="Role_Menu_Tie" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int32" />
+    <Property Name="ModifiedBy_UserID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="User_Role_Tie" Relationship="Self.FK_User_Role_Tie_Role" FromRole="Role" ToRole="User_Role_Tie" />
+    <NavigationProperty Name="Role_Menu_Tie" Relationship="CraftsModel.FK_Role_Menu_Tie_Role" FromRole="Role" ToRole="Role_Menu_Tie" />
+  </EntityType>
+  <EntityType Name="User_Role_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="RoleID" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role_Tie_Role" FromRole="User_Role_Tie" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_User_Role_Tie_User" FromRole="User_Role_Tie" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_User_Role_Tie_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User_Role_Tie" Type="Self.User_Role_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User_Role_Tie">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CratfsDb" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MainMenus" EntityType="Self.MainMenu" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="User_Role_Tie" EntityType="Self.User_Role_Tie" />
+    <AssociationSet Name="FK_User_Role_Tie_Role" Association="Self.FK_User_Role_Tie_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User_Role_Tie" EntitySet="User_Role_Tie" />
+    </AssociationSet>
+    <EntitySet Name="MessageDeliveryConfigurations" EntityType="CraftsModel.MessageDeliveryConfiguration" />
+    <EntitySet Name="Messages" EntityType="CraftsModel.Message" />
+    <EntitySet Name="Opportunities" EntityType="CraftsModel.Opportunity" />
+    <EntitySet Name="OpportunityConfigurations" EntityType="CraftsModel.OpportunityConfiguration" />
+    <EntitySet Name="OpportunityResponse_User_Tie" EntityType="CraftsModel.OpportunityResponse_User_Tie" />
+    <EntitySet Name="Professions" EntityType="CraftsModel.Profession" />
+    <EntitySet Name="Profession_Opportunity_Tie" EntityType="CraftsModel.Profession_Opportunity_Tie" />
+    <EntitySet Name="ProfileViews" EntityType="CraftsModel.ProfileView" />
+    <EntitySet Name="Role_Menu_Tie" EntityType="CraftsModel.Role_Menu_Tie" />
+    <EntitySet Name="SpamLists" EntityType="CraftsModel.SpamList" />
+    <EntitySet Name="Tokens" EntityType="CraftsModel.Token" />
+    <AssociationSet Name="FK_User_Menu_Tie_MainMenu" Association="CraftsModel.FK_User_Menu_Tie_MainMenu">
+      <End Role="MainMenu" EntitySet="MainMenus" />
+      <End Role="Role_Menu_Tie" EntitySet="Role_Menu_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpportunityResponse_User_Tie_Opportunities" Association="CraftsModel.FK_OpportunityResponse_User_Tie_Opportunities">
+      <End Role="Opportunity" EntitySet="Opportunities" />
+      <End Role="OpportunityResponse_User_Tie" EntitySet="OpportunityResponse_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_Opportunity_Tie_Opportunities" Association="CraftsModel.FK_Profession_Opportunity_Tie_Opportunities">
+      <End Role="Opportunity" EntitySet="Opportunities" />
+      <End Role="Profession_Opportunity_Tie" EntitySet="Profession_Opportunity_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_Opportunity_Tie_Profession" Association="CraftsModel.FK_Profession_Opportunity_Tie_Profession">
+      <End Role="Profession" EntitySet="Professions" />
+      <End Role="Profession_Opportunity_Tie" EntitySet="Profession_Opportunity_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Menu_Tie_Role" Association="CraftsModel.FK_Role_Menu_Tie_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Role_Menu_Tie" EntitySet="Role_Menu_Tie" />
+    </AssociationSet>
+    <EntitySet Name="Language_User_Tie" EntityType="CraftsModel.Language_User_Tie" />
+    <EntitySet Name="Languages" EntityType="CraftsModel.Language" />
+    <AssociationSet Name="FK_Language_User_Tie_Languages" Association="CraftsModel.FK_Language_User_Tie_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Language_User_Tie" EntitySet="Language_User_Tie" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="CraftsModel.User" />
+    <EntitySet Name="UserInfoes" EntityType="CraftsModel.UserInfo" />
+    <AssociationSet Name="FK_Language_User_Tie_User" Association="CraftsModel.FK_Language_User_Tie_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Language_User_Tie" EntitySet="Language_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_User" Association="CraftsModel.FK_Messages_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_User1" Association="CraftsModel.FK_Messages_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opportunities_User" Association="CraftsModel.FK_Opportunities_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Opportunity" EntitySet="Opportunities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpportunityResponse_User_Tie_User" Association="CraftsModel.FK_OpportunityResponse_User_Tie_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="OpportunityResponse_User_Tie" EntitySet="OpportunityResponse_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileViews_User" Association="CraftsModel.FK_ProfileViews_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ProfileView" EntitySet="ProfileViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileViews_User1" Association="CraftsModel.FK_ProfileViews_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ProfileView" EntitySet="ProfileViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpamList_User" Association="CraftsModel.FK_SpamList_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SpamList" EntitySet="SpamLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpamList_User1" Association="CraftsModel.FK_SpamList_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SpamList" EntitySet="SpamLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role_Tie_User" Association="CraftsModel.FK_User_Role_Tie_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User_Role_Tie" EntitySet="User_Role_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfo_User" Association="CraftsModel.FK_UserInfo_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <EntitySet Name="ExceptionLogs" EntityType="CraftsModel.ExceptionLog" />
+    <EntitySet Name="EmailTemplates" EntityType="CraftsModel.EmailTemplate" />
+    <EntitySet Name="Countries" EntityType="CraftsModel.Country" />
+    <EntitySet Name="States" EntityType="CraftsModel.State" />
+    <AssociationSet Name="FK_State_Country" Association="CraftsModel.FK_State_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <EntitySet Name="Cities" EntityType="CraftsModel.City" />
+    <AssociationSet Name="FK_City_State" Association="CraftsModel.FK_City_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <EntitySet Name="OTPs" EntityType="CraftsModel.OTP" />
+    <EntitySet Name="EmailOutboxes" EntityType="CraftsModel.EmailOutbox" />
+    <EntitySet Name="BlockLists" EntityType="CraftsModel.BlockList" />
+    <AssociationSet Name="FK_BlockList_User" Association="CraftsModel.FK_BlockList_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="BlockList" EntitySet="BlockLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlockList_User1" Association="CraftsModel.FK_BlockList_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="BlockList" EntitySet="BlockLists" />
+    </AssociationSet>
+    <EntitySet Name="Notifications" EntityType="CraftsModel.Notification" />
+    <EntitySet Name="Profession_User_Tie" EntityType="CraftsModel.Profession_User_Tie" />
+    <AssociationSet Name="FK_Notifications_User1" Association="CraftsModel.FK_Notifications_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_User_Tie_Profession" Association="CraftsModel.FK_Profession_User_Tie_Profession">
+      <End Role="Profession" EntitySet="Professions" />
+      <End Role="Profession_User_Tie" EntitySet="Profession_User_Tie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profession_User_Tie_User" Association="CraftsModel.FK_Profession_User_Tie_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Profession_User_Tie" EntitySet="Profession_User_Tie" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MessageDeliveryConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryHours" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedByUserId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FromUserId" Type="Int64" Nullable="false" />
+    <Property Name="ToUserId" Type="Int64" Nullable="false" />
+    <Property Name="IsViewed" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_Messages_User" FromRole="Message" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CraftsModel.FK_Messages_User1" FromRole="Message" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Opportunity">
+    <Key>
+      <PropertyRef Name="OpportunityId" />
+    </Key>
+    <Property Name="OpportunityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Remuneration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedByUserId" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="OpportunityResponse_User_Tie" Relationship="CraftsModel.FK_OpportunityResponse_User_Tie_Opportunities" FromRole="Opportunity" ToRole="OpportunityResponse_User_Tie" />
+    <NavigationProperty Name="Profession_Opportunity_Tie" Relationship="CraftsModel.FK_Profession_Opportunity_Tie_Opportunities" FromRole="Opportunity" ToRole="Profession_Opportunity_Tie" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_Opportunities_User" FromRole="Opportunity" ToRole="User" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OpportunityConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsPaymentUser" Type="Boolean" Nullable="false" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedByUserId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="OpportunityResponse_User_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Opportunity" Relationship="CraftsModel.FK_OpportunityResponse_User_Tie_Opportunities" FromRole="OpportunityResponse_User_Tie" ToRole="Opportunity" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_OpportunityResponse_User_Tie_User" FromRole="OpportunityResponse_User_Tie" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="ProfessionId" />
+    </Key>
+    <Property Name="ProfessionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfessionName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" />
+    <Property Name="Modified_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Profession_Opportunity_Tie" Relationship="CraftsModel.FK_Profession_Opportunity_Tie_Profession" FromRole="Profession" ToRole="Profession_Opportunity_Tie" />
+    <NavigationProperty Name="Profession_User_Tie" Relationship="CraftsModel.FK_Profession_User_Tie_Profession" FromRole="Profession" ToRole="Profession_User_Tie" />
+  </EntityType>
+  <EntityType Name="Profession_Opportunity_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityId" Type="Int32" Nullable="false" />
+    <Property Name="ProfessionID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Opportunity" Relationship="CraftsModel.FK_Profession_Opportunity_Tie_Opportunities" FromRole="Profession_Opportunity_Tie" ToRole="Opportunity" />
+    <NavigationProperty Name="Profession" Relationship="CraftsModel.FK_Profession_Opportunity_Tie_Profession" FromRole="Profession_Opportunity_Tie" ToRole="Profession" />
+  </EntityType>
+  <EntityType Name="ProfileView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WhoseUserId" Type="Int64" Nullable="false" />
+    <Property Name="ByWhomUserId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_ProfileViews_User" FromRole="ProfileView" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CraftsModel.FK_ProfileViews_User1" FromRole="ProfileView" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Role_Menu_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int64" />
+    <Property Name="MainMenuID" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="MainMenu" Relationship="CraftsModel.FK_User_Menu_Tie_MainMenu" FromRole="Role_Menu_Tie" ToRole="MainMenu" />
+    <NavigationProperty Name="Role" Relationship="CraftsModel.FK_Role_Menu_Tie_Role" FromRole="Role_Menu_Tie" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="SpamList">
+    <Key>
+      <PropertyRef Name="SpamId" />
+    </Key>
+    <Property Name="SpamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ByUserId" Type="Int64" Nullable="false" />
+    <Property Name="SpamUserId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsApprovedAdmin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_SpamList_User" FromRole="SpamList" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CraftsModel.FK_SpamList_User1" FromRole="SpamList" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TokenKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IssuedTime" Type="DateTime" Precision="3" />
+    <Property Name="ExpiredTime" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_User_Menu_Tie_MainMenu">
+    <End Type="CraftsModel.MainMenu" Role="MainMenu" Multiplicity="1" />
+    <End Type="CraftsModel.Role_Menu_Tie" Role="Role_Menu_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainMenu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="Role_Menu_Tie">
+        <PropertyRef Name="MainMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpportunityResponse_User_Tie_Opportunities">
+    <End Type="CraftsModel.Opportunity" Role="Opportunity" Multiplicity="1" />
+    <End Type="CraftsModel.OpportunityResponse_User_Tie" Role="OpportunityResponse_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityId" />
+      </Principal>
+      <Dependent Role="OpportunityResponse_User_Tie">
+        <PropertyRef Name="OpportunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_Opportunity_Tie_Opportunities">
+    <End Type="CraftsModel.Opportunity" Role="Opportunity" Multiplicity="1" />
+    <End Type="CraftsModel.Profession_Opportunity_Tie" Role="Profession_Opportunity_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunity">
+        <PropertyRef Name="OpportunityId" />
+      </Principal>
+      <Dependent Role="Profession_Opportunity_Tie">
+        <PropertyRef Name="OpportunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_Opportunity_Tie_Profession">
+    <End Type="CraftsModel.Profession" Role="Profession" Multiplicity="1" />
+    <End Type="CraftsModel.Profession_Opportunity_Tie" Role="Profession_Opportunity_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Profession_Opportunity_Tie">
+        <PropertyRef Name="ProfessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Menu_Tie_Role">
+    <End Type="CraftsModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="CraftsModel.Role_Menu_Tie" Role="Role_Menu_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Role_Menu_Tie">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Language_User_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Language" Relationship="CraftsModel.FK_Language_User_Tie_Languages" FromRole="Language_User_Tie" ToRole="Language" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_Language_User_Tie_User" FromRole="Language_User_Tie" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int32" />
+    <Property Name="ModifiedBy_UserID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Language_User_Tie" Relationship="CraftsModel.FK_Language_User_Tie_Languages" FromRole="Language" ToRole="Language_User_Tie" />
+  </EntityType>
+  <Association Name="FK_Language_User_Tie_Languages">
+    <End Type="CraftsModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="CraftsModel.Language_User_Tie" Role="Language_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Language_User_Tie">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <Property Name="ProfileType" Type="Int32" />
+    <Property Name="IsContentApproverApproved" Type="Boolean" />
+    <Property Name="IsAdminApproved" Type="Boolean" />
+    <Property Name="IsPaymentUser" Type="Boolean" />
+    <Property Name="IsProfileCreated" Type="Boolean" />
+    <Property Name="Views" Type="Int32" />
+    <Property Name="NumOfOpportunitiesCreated" Type="Int32" />
+    <NavigationProperty Name="Language_User_Tie" Relationship="CraftsModel.FK_Language_User_Tie_User" FromRole="User" ToRole="Language_User_Tie" />
+    <NavigationProperty Name="Messages" Relationship="CraftsModel.FK_Messages_User" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="Messages1" Relationship="CraftsModel.FK_Messages_User1" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="Opportunities" Relationship="CraftsModel.FK_Opportunities_User" FromRole="User" ToRole="Opportunity" />
+    <NavigationProperty Name="OpportunityResponse_User_Tie" Relationship="CraftsModel.FK_OpportunityResponse_User_Tie_User" FromRole="User" ToRole="OpportunityResponse_User_Tie" />
+    <NavigationProperty Name="ProfileViews" Relationship="CraftsModel.FK_ProfileViews_User" FromRole="User" ToRole="ProfileView" />
+    <NavigationProperty Name="ProfileViews1" Relationship="CraftsModel.FK_ProfileViews_User1" FromRole="User" ToRole="ProfileView" />
+    <NavigationProperty Name="SpamLists" Relationship="CraftsModel.FK_SpamList_User" FromRole="User" ToRole="SpamList" />
+    <NavigationProperty Name="SpamLists1" Relationship="CraftsModel.FK_SpamList_User1" FromRole="User" ToRole="SpamList" />
+    <NavigationProperty Name="User_Role_Tie" Relationship="CraftsModel.FK_User_Role_Tie_User" FromRole="User" ToRole="User_Role_Tie" />
+    <NavigationProperty Name="UserInfoes" Relationship="CraftsModel.FK_UserInfo_User" FromRole="User" ToRole="UserInfo" />
+    <Property Name="IsEmailApproved" Type="Boolean" />
+    <Property Name="CustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BlockLists" Relationship="CraftsModel.FK_BlockList_User" FromRole="User" ToRole="BlockList" />
+    <NavigationProperty Name="BlockLists1" Relationship="CraftsModel.FK_BlockList_User1" FromRole="User" ToRole="BlockList" />
+    <Property Name="IsImageVideoContentModified" Type="Boolean" />
+    <Property Name="ContentApproverComments" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="AdminComments" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Notifications" Relationship="CraftsModel.FK_Notifications_User1" FromRole="User" ToRole="Notification" />
+    <NavigationProperty Name="Profession_User_Tie" Relationship="CraftsModel.FK_Profession_User_Tie_User" FromRole="User" ToRole="Profession_User_Tie" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="MaritalStatus" Type="Int32" />
+    <Property Name="Hobbies" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SelfDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpYear" Type="Int32" />
+    <Property Name="ExpMonth" Type="Int32" />
+    <Property Name="CurrAssignment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="LastAssignment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="AvailabilityFrom" Type="DateTime" Precision="0" />
+    <Property Name="AvailabilityTo" Type="DateTime" Precision="0" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_UserInfo_User" FromRole="UserInfo" ToRole="User" />
+    <Property Name="PrimaryProfessionId" Type="Int32" />
+    <Property Name="GoogleDriveUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="YputubeChannel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remunaration" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CountryCode" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Language_User_Tie_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.Language_User_Tie" Role="Language_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Language_User_Tie">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="FromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_User1">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opportunities_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.Opportunity" Role="Opportunity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Opportunity">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpportunityResponse_User_Tie_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.OpportunityResponse_User_Tie" Role="OpportunityResponse_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="OpportunityResponse_User_Tie">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileViews_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.ProfileView" Role="ProfileView" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ProfileView">
+        <PropertyRef Name="WhoseUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileViews_User1">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.ProfileView" Role="ProfileView" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ProfileView">
+        <PropertyRef Name="ByWhomUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpamList_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.SpamList" Role="SpamList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SpamList">
+        <PropertyRef Name="ByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpamList_User1">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.SpamList" Role="SpamList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SpamList">
+        <PropertyRef Name="SpamUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role_Tie_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.User_Role_Tie" Role="User_Role_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="User_Role_Tie">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfo_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ExceptionLog">
+    <Key>
+      <PropertyRef Name="ExceptionId" />
+    </Key>
+    <Property Name="ExceptionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExceptionMsg" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionType" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EmailTemplate">
+    <Key>
+      <PropertyRef Name="TemplateId" />
+    </Key>
+    <Property Name="TemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TemplateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TemplateHTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReplaceKeys" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EmailSubject" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" />
+    <Property Name="Modified_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="States" Relationship="CraftsModel.FK_State_Country" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryID" Type="Int64" />
+    <Property Name="StateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" />
+    <Property Name="Modified_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Country" Relationship="CraftsModel.FK_State_Country" FromRole="State" ToRole="Country" />
+    <NavigationProperty Name="Cities" Relationship="CraftsModel.FK_City_State" FromRole="State" ToRole="City" />
+  </EntityType>
+  <Association Name="FK_State_Country">
+    <End Type="CraftsModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="CraftsModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateID" Type="Int64" />
+    <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" />
+    <Property Name="Modified_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="State" Relationship="CraftsModel.FK_City_State" FromRole="City" ToRole="State" />
+  </EntityType>
+  <Association Name="FK_City_State">
+    <End Type="CraftsModel.State" Role="State" Multiplicity="0..1" />
+    <End Type="CraftsModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OTP">
+    <Key>
+      <PropertyRef Name="OtpID" />
+    </Key>
+    <Property Name="OtpID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MobileNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OTP1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IssuedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EmailOutbox">
+    <Key>
+      <PropertyRef Name="EmailOutboxID" />
+    </Key>
+    <Property Name="EmailOutboxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailTemplateID" Type="Int32" />
+    <Property Name="EmailFrom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailTo" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCC" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="EmailSubject" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="EmailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateSent" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="BlockList">
+    <Key>
+      <PropertyRef Name="BlockId" />
+    </Key>
+    <Property Name="BlockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlockedByUserId" Type="Int64" Nullable="false" />
+    <Property Name="BlockedUserId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsApprovedAdmin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_BlockList_User" FromRole="BlockList" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CraftsModel.FK_BlockList_User1" FromRole="BlockList" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_BlockList_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.BlockList" Role="BlockList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="BlockList">
+        <PropertyRef Name="BlockedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlockList_User1">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.BlockList" Role="BlockList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="BlockList">
+        <PropertyRef Name="BlockedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notification1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ToUserId" Type="Int64" Nullable="false" />
+    <Property Name="IsViewed" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_Notifications_User1" FromRole="Notification" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Profession_User_Tie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="ProfessionID" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy_UserID" Type="Int64" Nullable="false" />
+    <Property Name="ModifiedBy_UserID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Profession" Relationship="CraftsModel.FK_Profession_User_Tie_Profession" FromRole="Profession_User_Tie" ToRole="Profession" />
+    <NavigationProperty Name="User" Relationship="CraftsModel.FK_Profession_User_Tie_User" FromRole="Profession_User_Tie" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Notifications_User1">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.Notification" Role="Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_User_Tie_Profession">
+    <End Type="CraftsModel.Profession" Role="Profession" Multiplicity="1" />
+    <End Type="CraftsModel.Profession_User_Tie" Role="Profession_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="ProfessionId" />
+      </Principal>
+      <Dependent Role="Profession_User_Tie">
+        <PropertyRef Name="ProfessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profession_User_Tie_User">
+    <End Type="CraftsModel.User" Role="User" Multiplicity="1" />
+    <End Type="CraftsModel.Profession_User_Tie" Role="Profession_User_Tie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Profession_User_Tie">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

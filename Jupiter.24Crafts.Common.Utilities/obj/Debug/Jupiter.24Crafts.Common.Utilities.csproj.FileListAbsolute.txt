@@ -1,0 +1,4 @@
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Utilities\bin\Debug\Jupiter.24Crafts.Common.Utilities.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Utilities\bin\Debug\Jupiter.24Crafts.Common.Utilities.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Utilities\obj\Debug\Jupiter.24Crafts.Common.Utilities.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Utilities\obj\Debug\Jupiter.24Crafts.Common.Utilities.pdb

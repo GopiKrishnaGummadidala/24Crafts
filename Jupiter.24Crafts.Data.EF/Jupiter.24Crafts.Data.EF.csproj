@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3974987-CF96-48B4-B65D-BF931C1970D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jupiter._24Crafts.Data.EF</RootNamespace>
+    <AssemblyName>Jupiter.24Crafts.Data.EF</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="24CraftsDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>24CraftsDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="24CraftsDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="24CraftsDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>24CraftsDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Advertisement.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditTrack.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BlockList.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumerEvent.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailOutbox.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailTemplate.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionLog.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Language_User_Tie.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageDeliveryConfiguration.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Opportunity.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpportunityConfiguration.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpportunityResponse_User_Tie.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTP.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profession.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profession_Opportunity_Tie.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profession_User_Tie.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileView.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role_Menu_Tie.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpamList.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Token.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Role_Tie.cs">
+      <DependentUpon>24CraftsDb.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="24CraftsDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>24CraftsDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="24CraftsDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>24CraftsDb.edmx</DependentUpon>
+      <LastGenOutput>24CraftsDb.Context.cs</LastGenOutput>
+    </None>
+    <None Include="24CraftsDb.edmx.diagram">
+      <DependentUpon>24CraftsDb.edmx</DependentUpon>
+    </None>
+    <None Include="24CraftsDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>24CraftsDb.edmx</DependentUpon>
+      <LastGenOutput>24CraftsDb.cs</LastGenOutput>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

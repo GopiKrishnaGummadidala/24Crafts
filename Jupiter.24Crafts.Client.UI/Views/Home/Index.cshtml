@@ -1,0 +1,737 @@
+﻿<!DOCTYPE html>
+<html ng-app ="rootApplication">
+    <head>
+        <!-- meta data -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <!-- title and favicon -->
+        <title>@ViewBag.Title :: Portfolio Template</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+
+        <link rel="icon" href="../assets/img/icon/fav_icon.gif">
+    @if (false)
+    {
+    <script src="~/Build/css/client-main-master.min.css"></script>
+    }
+    else
+    {
+        <!--necessary stylesheets -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+    <link type="text/css" href="../css/ProfileSearchstyle.css" rel="stylesheet" />
+              <!-- Compiled and minified CSS -->
+   
+  <!-- Compiled and minified JavaScript -->
+    
+
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.css">
+    <link type="text/css" rel="stylesheet" href="../css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/popup.css">
+    <link type="text/css" rel="stylesheet" href="../css/owl.carousel.css">
+    <link type="text/css" rel="stylesheet" href="../css/owl.theme.css">
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <link type="text/css" rel="stylesheet" href="../css/reset.css">
+    <link type="text/css" rel="stylesheet" href="../css/angular-toastr.css">
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link type="text/css" rel="stylesheet" href="../css/login.css">
+    <link type="text/css" rel="stylesheet" href="../css/loadingbar.css">
+    <link type="text/css" href="../css/ProfileSearchstyle.css" rel="stylesheet" />
+    <link href="~/css/file-input.css" rel="stylesheet" />
+    <link href="~/css/slider.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    }
+       
+        <style type="text/css">
+            .companyLogo {
+                width: 79% !important;
+                padding-top: 30%;
+                padding-left: 18%;
+            }
+             .header {
+                 text-align: center;
+             }
+            .bg-error {
+                border-color: red;
+            }
+            .l-image-container,.bus_l-image-container {
+                 position:relative;
+                  margin:20px 10px; 
+                 width:164px;
+                  float:left;
+                  transition:0.5s linear all;
+            }
+            .l-image-container img,.bus_l-image-container img{ width:100%; transition:0.5s linear all;}
+            .l-image-container span,.bus_l-image-container span{
+	display:none;
+	transition:0.5s linear all;
+}
+            .l-image-container:hover span,.bus_l-image-container:hover span {
+  position: absolute;
+  display:block;
+  top: 0;
+  transition:0.5s linear all;
+  z-index: 3;
+  cursor: pointer;
+  padding: 10px;
+}
+            .l-image-container:hover span.edit,.bus_l-image-container:hover span.edit { 
+                left: 0; 
+                background: lightgreen; 
+                transition:0.5s linear all;}
+            .l-image-container:hover span.delete,.bus_l-image-container:hover span.delete { 
+                right: 0;
+                 background:red;
+                 transition:0.5s linear all; }
+            .add { height: 200px; overflow:hidden; background:hsl(0,0%,90%);  
+
+border-radius:7px; padding:7px; }
+            .drop_target,.bus_drop_target {
+  position: relative;
+  cursor: pointer;
+  
+}
+            .drop_target:before,.bus_drop_target:before {
+    content: '\f0ee';
+    font-family: FontAwesome;
+    position: absolute;
+    display: block;
+    width: 100%;
+    line-height: 204px;
+    text-align: center;
+    font-size: 42px;
+    color: #333;
+  }
+            .drop_target input[type="file"],.bus_drop_target input[type="file"] {
+  visibility: hidden;
+}
+            .image_preview,.bus_image_preview {
+    cursor:pointer;
+    width: 100%;	
+    height: 100%;
+    background: no-repeat center;
+    background-size: contain;
+    position: relative;
+    z-index: 2;
+  }
+            .drop_target:hover, .bus_drop_target:hover {
+                opacity: 0.3;
+                background-image: url('../../img/default-upload.png');
+                background-repeat: no-repeat;
+            }
+
+        </style>
+
+    </head>
+<body ng-controller="rootController">
+    <div id="preloader">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navabar-div">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index.php"><img src="~/img/logo1.png" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" >
+                @*<div class="button-group pull-right">
+            <div class="user-info dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Gopi Krishna</div>
+            <ul class="dropdown-menu user-options">
+            <li><a href="#" class="small" data-value="option1" tabindex="-1"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile</a></li>
+            <li><a href="#" class="small" data-value="option2" tabindex="-1"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;&nbsp;Settings</a></li>
+            <li class="drp-menu">
+            <a ui-sref="aboutUs" class="small" data-value="option3" tabindex="-1"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Portfolio</a><a ui-sref="aboutUs" class="small" data-value="option3" tabindex="-1"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Opportunities</a><a ui-sref="aboutUs" class="small" data-value="option3" tabindex="-1">
+            <span class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;Profiles
+            </a>
+            </li>
+            <li><a href="#" class="small" data-value="option4" tabindex="-1"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;&nbsp;Log out</a></li>
+            </ul>
+            </div>*@
+                <ul class="nav navbar-top-links navbar-right">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true">
+                            <i class="fa fa-envelope"></i><span class="label label-warning lable-notify-button">16</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-comment fa-fw"></i> New Comment
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-tasks fa-fw"></i> New Task
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="fa fa-bell"></i>  <span class="label label-primary lable-notify-button">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="mailbox.html">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="profile.html">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="grid_options.html">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="notifications.html">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li data-toggle="modal" class="loginModal" data-target="#loginModal" ng-hide="authentication" ng-click="loginCntrl()">
+                        <a href="/#login">
+                            <i class="fa fa-user"></i> &nbsp;&nbsp; Log In/Sign Up
+                        </a>
+                    </li>
+                    <li data-toggle="modal" ng-show="authentication" ng-click="logOut()">
+                        <a style="cursor:pointer">
+                            <i class="fa fa-user"></i> &nbsp;&nbsp; Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div id="bl-main" class="bl-main">
+            <section>
+                <img src="~/img/main-images/portfolio.jpg" class="img-responsive main-section-image" />
+                <div class="bl-box" ui-sref="portfolio">
+                    <div class="mask">
+                    </div>
+                    @*<div class="heading">
+                        <i class="ion-ios-briefcase-outline hidden-xs"></i>
+                        <h2>Portfolio</h2>
+                    </div>*@
+                </div>
+                <div class="bl-content scrollwrapper" ui-view="portfolio">
+                </div>
+                <span class="bl-icon-close close-btn" ng-click="close()"></span>
+            </section>
+            <section>
+                <img src="~/img/main-images/search.jpg" class="img-responsive main-section-image" />
+                <div class="bl-box" ui-sref="profileSearch">
+                    <div class="mask">
+                    </div>
+                    @*<div class="heading">
+                        <i class="ion-ios-chatboxes-outline hidden-xs"></i>
+                        <h2 ui-sref="profileSearch">Search</h2>
+                    </div>*@
+                </div>
+                <div class="bl-content scrollwrapper" ui-view="profileSearch">
+
+                </div>
+                <span class="bl-icon-close close-btn" ng-click="close()"></span>
+            </section>
+            <section>
+                <img src="~/img/main-images/opp.jpg" class="img-responsive main-section-image" />
+                <div class="bl-box" ui-sref="opportunities">
+                    <div class="mask">
+                    </div>
+                    @*<div class="heading">
+                        <i class="ion-ios-lightbulb-outline hidden-xs"></i>
+                        <h2>Opportunities</h2>
+                    </div>*@
+                </div>
+                <div class="bl-content scrollwrapper" ui-view="opportunities">
+                </div>
+                <span class="bl-icon-close close-btn" ng-click="close()"></span>
+            </section>
+            <section>
+                <img src="~/img/main-images/about-us.jpg" class="img-responsive main-section-image" />
+                <div class="bl-box" ui-sref="aboutUs">
+                    <div class="mask">
+                    </div>
+                    @*<div class="heading">
+                        <i class="ion-ios-people-outline hidden-xs"></i>
+                        <h2>About Us</h2>
+                    </div>*@
+                </div>
+                <div class="bl-content scrollwrapper" ui-view="aboutUs">
+                </div>
+                <span class="bl-icon-close close-btn" ng-click="close()"></span>
+            </section>
+            <!-- Panel items for the works -->
+            <div class="bl-panel-items" id="bl-panel-work-items">
+                <div data-panel="panel-1">
+                    <div>
+                        <img src="~/img/portfolio/image_1.jpg" />
+                        <h3>Fixie bespoke</h3>
+                        <p>Iphone artisan direct trade ethical Austin. Fixie bespoke banh mi ugh, deep v vinyl hashtag. Tumblr gentrify keffiyeh pop-up iphone twee biodiesel. Occupy american apparel freegan cliche. Mustache trust fund 8-bit jean shorts mumblecore thundercats. Pour-over small batch forage cray, banjo post-ironic flannel keffiyeh cred ethnic semiotics next level tousled fashion axe. Sustainable cardigan keytar fap bushwick bespoke.</p>
+                    </div>
+                </div>
+                <div data-panel="panel-2">
+                    <div>
+                        <img src="~/img/portfolio/image_1.jpg" />
+                        <h3>Chillwave mustache</h3>
+                        <p>Squid vinyl scenester literally pug, hashtag tofu try-hard typewriter polaroid craft beer mlkshk cardigan photo booth PBR. Chillwave 90's gentrify american apparel carles disrupt. Pinterest semiotics single-origin coffee craft beer thundercats irony, tumblr bushwick intelligentsia pickled. Narwhal mustache godard master cleanse street art, occupy ugh selfies put a bird on it cray salvia four loko gluten-free shoreditch.</p>
+                    </div>
+                </div>
+                <div data-panel="panel-3">
+                    <div>
+                        <img src="~/img/portfolio/image_1.jpg" />
+                        <h3>Austin hella</h3>
+                        <p>Ethical cray wayfarers leggings vice, seitan banksy small batch ethnic master cleanse. Pug chillwave etsy, scenester meh occupy blue bottle tousled blog tonx pinterest selvage mixtape swag cosby sweater. Synth tousled direct trade, hella Austin craft beer ugh chambray.</p>
+                    </div>
+                </div>
+                <div data-panel="panel-4">
+                    <div>
+                        <img src="~/img/portfolio/image_1.jpg" />
+                        <h3>Brooklyn dreamcatcher</h3>
+                        <p>Fashion axe 90's pug fap. Blog wayfarers brooklyn dreamcatcher, bicycle rights retro YOLO. Wes anderson lomo 90's food truck 3 wolf moon, twee jean shorts. Iphone small batch twee wolf yr before they sold out. Brooklyn echo park cred, portland pug selvage flannel seitan tousled mcsweeney's.</p>
+                    </div>
+                </div>
+                <nav>
+                    <span class="bl-next-work">&gt; Next Project</span>
+                    <span class="bl-icon-close close-btn"></span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <loading></loading>
+    
+
+    <div class="modal fade bs-example-modal-lg" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" ng-controller="loginController">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content login-modal-content">
+
+                <div class="login-main-section">
+                    <div class="login-inner-section">
+                        <div class="logo-section">
+                            <img src="~/img/Badge.jpg" class="img-responsive res-image" />
+                            <img src="~/img/logo1.png" class="img-responsive logo-image" />
+                        </div>
+                    </div>
+                    <div class="login-inner-section" style="max-height:475px;overflow:auto">
+                        <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close" ng-click="closePopUp();"><span aria-hidden="true">&times;</span></button>
+                        <div class="module form-module">
+                            <div class="tabs">
+                                <h3 class="login-tab"><a href="#login-tab-content" class="active">Login</a></h3>
+                                <h3 class="signup-tab"><a href="#signup-tab-content">Sign Up</a></h3>
+                            </div><!--.tabs-->
+                            <div class="tabs-content">
+
+                                <div id="login-tab-content" class="active">
+                                    <form name="userForm" ng-submit="login()" novalidate ng-show="validateLogin">
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (userForm.$submitted || userForm.userName.$touched) && userForm.userName.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="text" name="userName" class="form-control material-textbox"  ng-model="loginData.userName" required>
+                                                            <label class="material-textlabel" for="">Mobile No Or Customer Id</label>
+                                                        </div>
+                                                        <div ng-show="userForm.$submitted || userForm.userName.$touched">
+                                                            <div ng-show="userForm.userName.$error.required" class="help-block">Mobile No Or Customer Id is required.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (userForm.$submitted || userForm.password.$touched) && userForm.password.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="password" name="password" class="form-control material-textbox" placeholder="" ng-model="loginData.password" required>
+                                                            <label class="material-textlabel" for="">Password</label>
+                                                        </div>
+                                                        <div ng-show="userForm.$submitted || userForm.password.$touched">
+                                                            <div ng-show="userForm.password.$error.required" class="help-block">Password is required.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn-login-blue"><i class="glyphicon glyphicon-lock"></i>&nbsp;Secure Login</button>
+                                        <span class="text-terms">By Logging in you agree to our T&C and Privacy Policy.</span>
+                                        <div class="help-text">
+                                            <p style="display:inline-block;padding-right:50px"><a href="#" ng-click="loginwithOTP()">Login with OTP?</a></p>
+                                            <p style="display:inline-block"><a href="#" ng-click="forgetPassword()">Forget your password?</a></p>
+                                        </div><!--.help-text-->
+                                    </form> 
+                                    <!--.login-form-->
+
+                                     <div class="alternate-login-panel" ng-show="showforgetPassword">
+                                    <form name ="forgetpasswordForm" ng-submit="submitforgetPassword()">
+                                        <div class="form-group has-feedback" ng-class="{'has-error': (forgetpasswordForm.$submitted || forgetpasswordForm.forgetmailid.$touched) && forgetpasswordForm.forgetmailid.$error.required}">
+                                            <div class="material-field">
+                                                <input type="email" name="forgetmailid" class="form-control material-textbox" ng-model="forgetData.forgetmailid" required>
+                                                <label class="material-textlabel" for="">Enter Mail Id</label>
+                                            </div>
+                                            <div ng-show="forgetpasswordForm.$submitted || forgetpasswordForm.forgetmailid.$touched">
+                                                <div ng-show="forgetpasswordForm.forgetmailid.$error.required" class="help-block">Email required</div>
+                                            </div>
+                                        </div>
+                                       <button type="submit" class="btn-login-blue"><i class="glyphicon glyphicon-lock"></i>Send Email</button>
+
+                                       
+                                        <p style="display:inline-block;padding-right:50px;padding-top:20px"><a href="#" ng-click="loginwithOTP()">Login with OTP?</a></p>
+                                        <p style="display:inline-block;padding-top:20px"><a href="#" ng-click="showLoginForm()">Back</a></p>
+
+                                    </form>
+                                </div>
+
+                                    <div class="alternate-login-panel" ng-show="viewLoginOTP">
+                                        <form name="loginotpForm" ng-submit="loginOtpSubmit()">
+                                            <div class="form-group has-feedback" ng-class="{'has-error': (loginotpForm.$submitted || loginotpForm.otpnumber.$touched) && loginotpForm.otpnumber.$error.required}">
+                                                <div class="material-field" style="width:90%">
+                                                    <input type="tel" name="otpnumber" class="form-control material-textbox" ng-model="otpData.otpnumber" required style="width:90%">
+                                                    <label class="material-textlabel" for="">Phone Number</label>
+                                                </div>
+                                                <p id="LoginSendotp" class="otp-lable" ng-click="sendLoginotptoNumber()">Send OTP</p>
+                                                <div ng-show="loginotpForm.$submitted || loginotpForm.otpnumber.$touched">
+                                                    <div ng-show="loginotpForm.otpnumber.$error.required" class="help-block">Phone number required</div>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <div class="form-group has-feedback" ng-class="{'has-error': (loginotpForm.$submitted || loginotpForm.loginotp.$touched) && loginotpForm.loginotp.$error.required}">
+                                                <div class="material-field" style="width:90%">
+                                                    <input type="number" name="loginotp" class="form-control material-textbox" ng-model="otpData.loginotp" required style="width:90%">
+                                                    <label class="material-textlabel" for="">OTP</label>
+                                                </div>
+                                                <div ng-show="loginotpForm.$submitted || loginotpForm.loginotp.$touched">
+                                                    <div ng-show="loginotpForm.loginotp.$error.required" class="help-block">enter OTP</div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn-login-blue"><i class="glyphicon glyphicon-lock" ng-click="OTPLogin();"></i>Login</button>
+
+                                            <p style="display:inline-block;padding-top:20px;padding-right:50px;"><a href="#" ng-click="forgetPassword();">Forget your password?</a></p>
+                                            <p style="display:inline-block;padding-top:20px"><a href="#" ng-click="showLoginForm()">Back</a></p>
+                                        </form>
+                                    </div>
+
+                                </div><!--.login-tab-content-->
+                                <div id="signup-tab-content">
+                                    <form name="registerForm" ng-submit="registerSubmit()" novalidate>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.firstName.$touched) && registerForm.firstName.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="text" name="firstName" class="form-control material-textbox" placeholder="" ng-model="registerData.firstName" required>
+                                                            <label class="material-textlabel" for="">First Name</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.firstName.$touched">
+                                                            <div ng-show="registerForm.firstName.$error.required" class="help-block">First name is required.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.phoneno.$touched) && registerForm.phoneno.$error.required || registerForm.phoneno.$error.minlength || registerForm.phoneno.$error.maxlength || registerForm.phoneno.$error.pattern}">
+                                                        <div class="material-field" style="width:80%;">
+                                                            <input type="tel" name="phoneno" ng-minlength="10" ng-maxlength="10" ng-pattern="phoneNumberPattern" class="form-control material-textbox" placeholder="" ng-model="registerData.phoneno" required style="width:90%">
+                                                            <label class="material-textlabel" for="">Phone Number</label>
+                                                            <div ng-show="registerForm.$submitted ||  registerForm.phoneno.$touched">
+                                                                <div ng-show="registerForm.phoneno.$error.required" class="help-block">Mobile no is required.</div>
+                                                                <div ng-show="registerForm.phoneno.$error.minlength" class="help-block">Enter a 10 digits number.</div>
+                                                                <div ng-show="registerForm.phoneno.$error.maxlength" class="help-block">Enter a 10 digits number.</div>
+                                                                <div ng-show="registerForm.phoneno.$error.pattern" class="help-block">Please enter a number.</div>
+                                                            </div>
+                                                        </div>
+                                                        <p id="sendotp" class="otp-lable" ng-click="sendotptoNumber()">Send OTP</p>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.otp.$touched) && registerForm.otp.$error.required || registerForm.otp.$error.minlength}">
+                                                        <div class="material-field">
+                                                            <input type="tel" name="otp" class="form-control material-textbox" placeholder="" ng-model="registerData.otp" required ng-minlength="6" ng-maxlength="6">
+                                                            <label class="material-textlabel" for="">OTP</label>
+                                                            <i class="fa fa-check-circle-o valid-success valid-check" ng-show="isOtpValid" aria-hidden="true"></i>
+                                                            <i class="fa fa-times-circle valid-failure valid-check" ng-show="isOtpValid" aria-hidden="true"></i>
+                                                            <div ng-show="registerForm.$submitted ||  registerForm.otp.$touched">
+                                                                <div ng-show="registerForm.otp.$error.required" class="help-block">OTP is required.</div>
+                                                                <div ng-show="registerForm.otp.$error.minlength" class="help-block">Please enter valid otp.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.password.$touched) && registerForm.password.$error.required || registerForm.password.$error.minlength || registerForm.password.$error.pattern}">
+                                                        <div class="material-field">
+                                                            <input type="password" id="password" class="form-control material-textbox" name="password" ng-model="registerData.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="" required />
+                                                            <label class="material-textlabel" for="">Password</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.password.$touched">
+                                                            <div ng-show="registerForm.password.$error.required" class="help-block">Password is required.</div>
+                                                            <div ng-show="registerForm.password.$error.minlength" class="help-block">Password must be between 8 and 20 characters..</div>
+                                                            <div ng-show="registerForm.password.$error.pattern" class="help-block">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.lastName.$touched) && registerForm.lastName.$error.required}">
+                                                        <div class="material-field">
+
+                                                            <input type="text" name="lastName" class="form-control material-textbox" placeholder="" ng-model="registerData.lastName" required>
+                                                            <label class="material-textlabel" for="">Last Name</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.lastName.$touched">
+                                                            <div ng-show="registerForm.lastName.$error.required" class="help-block">Last name is required.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.profileType.$touched) && registerForm.profileType.$error.required}">
+                                                        <div class="mdl-selectfield">
+                                                            <i id="select-icon"></i>
+                                                            <select id="profile-dropdown-menu" name="profileType" class="form-control" ng-model="registerData.profileType" required="" ng-change="validateProfile(registerData.phoneno, registerData.profileType);">
+                                                                <option value="0" selected>Choose your option</option>
+                                                                <option value="1">Individual</option>
+                                                                <option value="2">Business</option>
+                                                            </select>
+                                                            <i class="fa fa-check-circle-o valid-success valid-check" ng-show="isValidProfileSuccess" aria-hidden="true"></i>
+                                                            <i class="fa fa-times-circle valid-failure valid-check" ng-show="isValidProfileFail" aria-hidden="true"></i>
+                                                        </div>
+
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.profileType.$touched">
+                                                            <div ng-show="registerForm.profileType.$error.required" class="help-block">Select a profile type.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.email.$touched) && registerForm.email.$error.required}">
+                                                        <div class="material-field">
+                                                            <input type="email" name="email" class="form-control material-textbox" placeholder="" ng-model="registerData.email" required>
+                                                            <label class="material-textlabel" for="">Email Address</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.email.$touched">
+                                                            <div ng-show="registerForm.email.$error.required" class="help-block">Email is required.</div>
+                                                            <div ng-show="registerForm.email.$error.email" class="help-block">Not valid email.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-feedback" ng-class="{'has-error': (registerForm.$submitted || registerForm.password_c.$touched) && registerForm.password_c.$error.required || registerForm.password_c.$error.noMatch}">
+                                                        <div class="material-field">
+                                                            <input type="password" id="password_c" class="form-control material-textbox" name="password_c" ng-model="registerData.password_c" placeholder="" valid-password-c="registerData.password" required />
+                                                            <label class="material-textlabel" for="">Confirm Password</label>
+                                                        </div>
+                                                        <div ng-show="registerForm.$submitted ||  registerForm.password_c.$touched">
+                                                            <div ng-show="registerForm.password_c.$error.required" class="help-block">Confirm password is required.</div>
+                                                            <div ng-show="registerForm.password_c.$error.noMatch" class="help-block">Passwords do not match.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn-login-blue">
+                                                <i class="glyphicon glyphicon-lock"></i>&nbsp;Create your Account
+                                            </button>
+                                            <span class="text-terms">By Logging in you agree to our T&C and Privacy Policy.</span>
+                                          </div>
+                                    </form>
+                                    <!--.login-form-->
+                                    <div class="help-text">
+                                        <p>By signing up, you agree to our</p>
+                                        <p><a href="#">Terms of service</a></p>
+                                    </div><!--.help-text-->
+                                </div><!--.signup-tab-content-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!--.form-wrap-->
+            </div>
+        </div>
+    </div>
+
+
+  
+
+    <!--
+    9 ) Javascript
+    - -->
+    @if (false)
+    {
+    <script src="~/Build/js/client-main-master.min.js"></script>
+    }
+    else
+    {
+    <script type="text/javascript" src="../Scripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.2/moment-timezone-with-data-2010-2020.js"></script>
+    <!-- 3rd party libraries -->
+    <script src="../app/vendors/angular.js"></script>
+    <script src="../app/vendors/angular-ui-router.js"></script>
+    <script src="../app/vendors/angular-base64.js"></script>
+    <script src="../app/vendors/angular-local-storage.min.js"></script>
+    <script src="../app/vendors/angular-toastr.tpls.min.js"></script>
+    <script src="../app/vendors/loading-bar.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+    <script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js"></script>
+    <script src="../app/app.js"></script>
+
+    <script src="../app/components/directives/loaderDirective.js"></script>
+    <script src="../app/components/services/authService.js"></script>
+    <script src="../app/components/services/notificationService.js"></script>
+    <script src="../app/components/services/oppurtunitiesService.js"></script>
+    <script src="../app/components/services/portfolioService.js"></script>
+    <script src="../app/components/services/profileSearchService.js"></script>
+    <script src="../app/components/services/country-State-City-Service.js"></script>
+
+    <script src="../app/controller.js"></script>
+    <script src="../app/components/controllers/aboutUsController.js"></script>
+    <script src="../app/components/controllers/accountController.js"></script>
+    <script src="../app/components/controllers/oppurtunitiesController.js"></script>
+    <script src="../app/components/controllers/portfolioController.js"></script>
+    <script src="../app/components/controllers/contactController.js"></script>
+    <script src="../app/components/controllers/registrationController.js"></script>
+    <script src="../app/components/controllers/homeController.js"></script>
+    <script src="../app/components/controllers/profileSearchController.js"></script>
+
+    <script type="text/javascript" src="../Scripts/modernizr.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.popup.min.js"></script>
+    <script type="text/javascript" src="../Scripts/owl.carousel.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="../Scripts/contact.js"></script>
+    <script type="text/javascript" src="../Scripts/script.js"></script>
+
+    }
+    <script src="../app/vendors/fileinput.js"></script>
+    <script src="../Scripts/script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.min.js"></script>*@
+    @*<script src="http://tympanus.net/codrops/adpacks/csscustom.js"></script>
+    <script src="http://tympanus.net/codrops/wp-content/plugins/oiopub-direct/js.php?type=banner&align=center&zone=1"></script>*@
+    
+    <script src="../app/vendors/boxlayout.js"></script>
+    <script src="../app/vendors/image-upload.js"></script>
+    <script>
+        function openPopup() {
+            $('#btn-popup').modal('show');
+            $('#btn-popup').on('shown.bs.modal', function (e) {
+                $('.popup-data').css('.display', 'block');
+            });
+            $('#btn-popup').on('hiiden.bs.modal', function (e) {
+                $('.popup-data').css('.display', 'block');
+            })
+        }
+
+    </script>
+    <script>
+        $(document).on('click', function () {
+            Boxlayout.init();
+
+        });
+
+        $('#loginModal').on('shown.bs.modal', function (e) {
+            tab = $('.tabs h3 a');
+
+            tab.on('click', function (event) {
+                event.preventDefault();
+                tab.removeClass('active');
+                $(this).addClass('active');
+
+                tab_content = $(this).attr('href');
+                $('div[id$="tab-content"]').removeClass('active');
+                $(tab_content).addClass('active');
+            });
+            $('.material-textbox').on("focus", function () {
+                 $(this).addClass('textbox-focused')
+            });
+
+            $('.material-textbox').on("blur", function () {
+                if ($(this).val() === '') {
+                    $(this).removeClass('textbox-focused')
+                }
+            });
+
+            var triggerOpen = $('#input-select');
+            var triggerClose = $('#profile-dropdown-menu').find('li');
+            var marka = $('#select-icon');
+
+        });
+
+      
+    </script>
+
+</body>
+</html>

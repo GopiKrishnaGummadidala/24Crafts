@@ -1,0 +1,447 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+	font-family: Helvetica, Arial, Verdana;
+	background: #efefef url('../img/ticks.png') repeat 0 0;
+	margin:15px 0 0 0;
+	font-size:12px;
+}
+
+#info {
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;				
+	background:#fcf8e3;
+	border:1px solid  #fbeed5;
+	width:95%;
+	max-width:900px;
+	margin:0 auto 40px auto;
+	font-family:arial;
+	font-size:12px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+
+	#info .info-wrapper {
+		padding:10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+
+	}
+	
+	#info a {
+		color:#c09853;
+		text-decoration:none;
+	}
+	
+	#info p {
+		margin:5px 0 0 0;
+	}
+
+
+.container { 
+	position: relative; 
+	width: 960px; 
+	margin: 0 auto; 
+	-webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;	
+}
+ 
+#filters {
+	margin:1%;
+	padding:0;
+	list-style:none;
+}
+
+	#filters li {
+		float:left;
+	}
+	
+	#filters li span {
+		display: block;
+		padding:5px 20px;		
+		text-decoration:none;
+		color:#666;
+		cursor: pointer;
+	}
+	
+	#filters li span.active {
+		background: #e95a44;
+		color:#fff;
+	}
+ 
+
+ 
+#portfoliolist .portfolio {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	width:23%;
+	margin:1%;
+	display:none;
+	float:left;
+	overflow:hidden;
+}
+#portfoliolist .portfolio.images-videos {
+  width: 23%;
+}
+
+	.portfolio-wrapper {
+		/*overflow:hidden;
+		position: relative !important;
+		background: #666;
+		cursor:pointer; */
+	}
+
+	.portfolio img {
+		max-width:100%;
+		position: relative;
+		top:0;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);		
+	}
+	
+	.portfolio .label {
+		/*position: absolute;
+		width: 100%;
+		height:40px;
+		bottom:-40px; */
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+		.portfolio .label-bg {
+			background: #e95a44;
+			width: 100%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+	
+		.portfolio .label-text {
+			color:#fff;
+			position: relative;
+			z-index:500;
+			padding:5px 8px;
+		}
+			
+			.portfolio .text-category {
+				display:block;
+				font-size:9px;
+			}
+	
+	.portfolio:hover .label {
+   /* bottom:0; */
+  }
+	.portfolio:hover img {
+   /* top:-30px; */
+  }  
+
+/*custom styling for theme start*/
+button {
+  border: medium none;
+}
+#portfoliolist .images-videos .label-value {
+  display: inline-block;
+  height: auto;
+  width: 50%;
+}
+.view-page .footer {
+  background-color: #373a3c ; color: #fff;
+   padding: 20px 0 10px; font-family: "Montserrat",sans-serif;
+}
+.footer a {
+  color: #5f9ea0;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out 0s;
+}
+.footer a:hover {
+  color: #f4f4f4;
+}
+.footer .copyright {
+  color: #fff; 
+  float: left;
+}
+.content-container {
+  background: #ffffff none repeat scroll 0 0;
+  left: 0;
+  padding: 0;
+  position: relative;
+}
+.main-heading h1 {
+  color: #fff; font-family: "Montserrat",sans-serif;
+  font-size: 40px;
+  position: relative;
+  text-align: left;
+  text-transform: capitalize;
+}
+/*View page stylings*/
+#section-profile {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+#portfoliolist {
+  display: inline-block;
+  width: 52%;
+}
+#portfoliolist .portfolio {
+  margin: 0 0 1em;   width: 100%;
+}
+#portfoliolist .label-Name {
+  color: #00b796;    font-family: "Montserrat",sans-serif;
+  font-size: 1.5em;   text-align: left;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+#portfoliolist .label-value {
+  color: #373a3c;    font-family: "Montserrat",sans-serif;
+  font-size: 1.4em;     line-height: 23px; white-space: normal;
+  text-align: left;
+}
+#portfoliolist .portfolio .label {
+  width: 100%;
+}
+.project-controls ul#filters {
+  text-align: center;
+}
+.view-information {
+  background: #f8f5f0 none repeat scroll 0 0;
+  padding: 2% 2% 3%;
+  margin: 3em 0 1em;
+}
+#portfoliolist .portfolio {
+    box-sizing: border-box;
+    display: none;
+    float: left;
+    margin: 1%;
+    overflow: hidden;
+    width: 100%;
+}
+#portfoliolist .portfolio.images-videos {
+  width: 100%;
+}
+.cl-effect-20 .anima-effect-1 button {
+	background: #00b796 none repeat scroll 0 0;
+	border-color: #00b796;
+	border-radius: 0;
+	box-shadow: 0 3px #373a3c inset;
+	color: #fff;
+	font-family: "Montserrat",sans-serif;
+	padding: 0.6em 1.18em;
+	position: relative;
+	text-transform: uppercase;
+	transform-origin: 0 50% 0;
+	transform-style: preserve-3d;
+	-webkit-transition: background 0.6s ease 0s;
+	-moz-transition: background 0.6s ease 0s;
+	-ms-transition: background 0.6s ease 0s;
+	transition: background 0.6s ease 0s;
+	border-bottom: none;
+}
+.cl-effect-20 .anima-effect-1 button::before {
+	background: #373a3c none repeat scroll 0 0;
+	color: #fff;
+	content: attr(data-hover);
+	display: inline-block;
+	height: 100%;
+	left: 0;
+	line-height: 51px;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	-webkit-transform: rotateX(270deg);
+	-moz-transform: rotateX(270deg);
+	-ms-transform: rotateX(270deg);
+	transform: rotateX(270deg);
+	transform-origin: 0 0 0;
+	-webkit-transition: transform 0.6s ease 0s;
+	-moz-transition: transform 0.6s ease 0s;
+	-o-transition: transform 0.6s ease 0s;
+	transition: transform 0.6s ease 0s;
+	width: 100%;
+}
+.cl-effect-20 .anima-effect-1  {
+	display: inline-block;
+	line-height: 2em;
+	perspective: 800px;
+}
+.cl-effect-20 .anima-effect-1:hover button::before, .cl-effect-20 .anima-effect-1:focus button::before {
+	-webkit-transform: rotateX(10deg);
+	-moz-transform: rotateX(10deg);
+	-ms-transform: rotateX(10deg);
+	transform: rotateX(10deg);
+}
+.cl-effect-20 .anima-effect-1 button.active {
+  background: #373a3c none repeat scroll 0 0;
+}
+.portfolio-page .image-container {
+  background: rgba(0, 0, 0, 0) url("../img/portfolio_featured.png") repeat scroll center bottom / cover ;
+}
+.mask {
+  background: rgba(0, 0, 0, 0.48) none repeat scroll 0 0;
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.container-fluid .image-container {
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  right: 0;
+}
+.profile-page, .service-page, .portfolio-page, .contact-page {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.view-page .content-container.col-md-9.col-sm-12 {
+  padding: 0;
+}
+.main-heading {
+  bottom: 50%;
+  left: 10%;
+  position: absolute;
+  transform: rotate(90deg);
+  transform-origin: left center 0;
+}
+h2.small-heading {
+    padding: 60px 0 10px 0;
+    font-size: 2.25em;
+    margin-bottom: 60px;
+    position: relative;
+    display: block;
+    text-align: center;
+	font-family: "Montserrat",sans-serif;
+}
+
+h2.small-heading:after {
+    position: absolute;
+    font-family: 'FontAwesome';
+    font-size: 35px;
+    content: "\f107";
+    left: 48%;
+    bottom: -28px;
+    color: #073a63;
+    background-color: #ffffff;
+    padding: 0px 8px;
+}
+
+h2.small-heading:before {
+    position: absolute;
+    bottom: -10px;
+    content: "";
+    height: 2px;
+    background-color: #073a63;
+    display: block;
+    width: 23%;
+    left: 38%;
+}
+.full-height {
+  min-height: calc(100vh - 68px);
+}
+/*custom styling for theme end*/	
+
+
+
+/* #Tablet (Portrait) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.container {
+		width: 768px; 
+	}
+}
+
+
+/*  #Mobile (Portrait) - Note: Design for a width of 320px */
+@media only screen and (max-width: 767px) {
+	.container { 
+		width: 95%; 
+	}
+	#ads {
+		display:none;
+	}
+	.view-information {
+	  padding: 6% 4% 3%;    margin: 1em 0;
+	}
+	#section-profile{ text-align: center;}
+	#portfoliolist,#section-profile{
+		width: 100%; 
+	}
+	.cl-effect-20 .anima-effect-1 button{
+		font-size: 10px;
+		margin-bottom: 1em;
+	}
+	.cl-effect-20 .anima-effect-1 button::before{line-height: 44px;}
+	h2.small-heading::after {
+	  font-size: 27px; left: 46%;
+	}
+	h2.small-heading{
+		font-size: 1.5em;
+	}
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+	.cl-effect-20 .anima-effect-1{
+		margin: 0 0 1em;
+	}
+}
+
+/* #Mobile (Landscape) - Note: Design for a width of 480px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.container {
+		width: 70%;
+	}
+	
+	#ads {
+		display:none;
+	}
+	
+}
+
+/* #Clearing */
+
+/* Self Clearing Goodness */
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+.row:after,
+.clearfix:after {
+  clear: both; }
+.row,
+.clearfix {
+  zoom: 1; }
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+/*Mac resolution stylings */
+@media only screen and (min-width: 1440px) {
+	#section-profile {
+	  width: 34%;
+	}
+}

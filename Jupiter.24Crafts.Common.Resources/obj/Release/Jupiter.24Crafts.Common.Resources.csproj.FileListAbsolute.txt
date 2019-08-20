@@ -1,0 +1,4 @@
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\bin\Release\Jupiter.24Crafts.Common.Resources.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\bin\Release\Jupiter.24Crafts.Common.Resources.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\obj\Release\Jupiter.24Crafts.Common.Resources.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\obj\Release\Jupiter.24Crafts.Common.Resources.pdb

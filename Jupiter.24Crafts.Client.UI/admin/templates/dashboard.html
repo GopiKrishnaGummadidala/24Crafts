@@ -1,0 +1,85 @@
+
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Icons</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Dashboard</h1>
+			</div>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-blue panel-widget ">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked camera "><use xlink:href="#stroked-camera"/></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{dashBoardData.imageCount}}</div>
+							<div class="text-muted">image Approvals</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{dashBoardData.appCount}}</div>
+							<div class="text-muted">User Approvals</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{dashBoardData.spamCount}}</div>
+							<div class="text-muted">Spam Requests</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+		<div class="row">
+			<div class="col-md-6">
+			
+				<div class="panel panel-blue">
+					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>To-do List</div>
+					<div class="panel-body">
+						<ul class="todo-list">
+						<li class="todo-list-item" ng-repeat="tod in toCount">
+								<div class="checkbox">
+									<input type="checkbox" id="checkbox" />
+									<label for="checkbox">{{tod.message}}</label>
+								</div>
+								<div class="pull-right action-buttons">
+									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="panel-footer">
+						<div class="input-group">
+							<input id="btn-input" type="text" class="form-control input-md" placeholder="Add new task" />
+							<span class="input-group-btn">
+								<button class="btn btn-primary btn-md" id="btn-todo">Add</button>
+							</span>
+						</div>
+					</div>
+				</div>
+								
+			</div><!--/.col-->
+		</div><!--/.row-->

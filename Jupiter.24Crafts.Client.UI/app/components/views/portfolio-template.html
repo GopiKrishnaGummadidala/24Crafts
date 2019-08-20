@@ -1,0 +1,635 @@
+﻿<div class="row">   
+
+
+
+    <!--( b ) Portfolio Page Content -->
+
+    <div class="content-container col-md-12 col-sm-12">
+
+        <!--( A ) Portfolio -->
+
+        <div class="portfolio clearfix full-height">
+            <h2 class="small-heading">PORTFOLIO</h2>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                    <div class="project-container">
+                        <div class="row">
+                            <div class="project-controls">
+                               
+                                <main class="portfolio-main-container">
+
+                                    <input id="tab1" type="radio" name="tabs" checked class="portfolio-input-select">
+                                    <label for="tab1" class="portfolio-lable-select individual-tab">Individual</label>
+
+                                    <input id="tab2" type="radio" name="tabs" class="portfolio-input-select" ng-show="businessObj.enableBusiness">
+                                    <label for="tab2" class="portfolio-lable-select" ng-show="businessObj.enableBusiness">Business</label>
+
+                                    <div class="main-container__column material-checkbox-group material-checkbox-group_primary" ng-show="businessObj.showBusiness" style="position:absolute;right:0;">
+                                        <input type="checkbox" id="chkbusiness" class="material-checkbox" ng-model="businessObj.enableBusiness" ng-change="enableIndivudualEvent()" />
+                                        <label for="chkbusiness" class="material-checkbox-group__label" style="color:#555">Enable Business</label>
+                                    </div>
+
+                                    <section id="content1" class="portfolio-select-section" ng-controller="myselfController">
+                                        <div id="msform">
+
+                                            <!-- progressbar -->
+                                            <ul id="progressbar">
+                                                <li class="active" data-field="myself-fieldset">
+                                                    <span class="counter-ele">1</span><br />
+                                                    <span class="filedName">Myself</span> <hr class="progress-navbar" />
+                                                </li>
+                                                <li data-field="profession-fieldset" data-ng-click="mySelf(pfMyself.$valid)">
+                                                    <span class="counter-ele">2</span><br />
+                                                    <span class="filedName">Profession</span> <hr class="progress-navbar" />
+                                                </li>
+                                                <li data-field="remuneration-fieldset" data-ng-click="profession(pfMyself.$valid,pfProfession.$valid)">
+                                                    <span class="counter-ele">3</span><br />
+                                                    <span class="filedName">Renumeration</span> <hr class="progress-navbar" />
+                                                </li>
+                                                <li data-field="contact-fieldset"  data-ng-click="renumeration(pfMyself.$valid,pfProfession.$valid,pfRenumeration.$valid)">
+                                                    <span class="counter-ele">4</span><br />
+                                                    <span class="filedName">Contact Details</span>
+                                                    <hr class="progress-navbar" />
+                                                </li>
+                                                <li data-field="image-fieldset" data-ng-click="contactDetails(pfMyself.$valid,pfProfession.$valid,pfRenumeration.$valid,pfContactDetails.$valid)">
+                                                    <span class="counter-ele">5</span><br />
+                                                    <span class="filedName"> Images/Videos</span>
+                                                </li>
+                                            </ul>
+
+                                            <!-- fieldsets -->
+                                            <fieldset id="myself-fieldset">
+                                                <form id="pfMyself" name="pfMyself" ng-submit="mySelf(pfMyself.$valid)" novalidate="">
+                                                    <h2 class="fs-title">Myself</h2>
+                                                    <!--<h3 class="fs-subtitle">This is step 1</h3>-->
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Name</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="material-field has-feedback" ng-class="{'has-error': (pfMyself.$submitted || pfMyself.userName.$touched) && pfMyself.userName.$error.required}">
+                                                                <input name="userName" class="form-control material-textbox" required type="text" ng-model="pfMyselfModel.userName">
+                                                                <div ng-show="pfMyself.$submitted || pfMyself.userName.$touched">
+                                                                    <div ng-show="pfMyself.userName.$error.required" class="help-block">Name is required.</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row" style="margin-bottom:0 !important">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Gender: </span>
+                                                        </div>
+                                                        <div class="col-sm-9 text-left">
+                                                            <span class="material-form-control-wrap radio-32">
+                                                                <span class="material-form-control wpcf7-radio frent">
+                                                                    <span class="material-list-item first">
+                                                                        <label>
+                                                                            <input type="radio" name="Gender" value="1" ng-model="pfMyselfModel.Gender" class="material-radio" ng-checked="init.Gender">&nbsp;
+                                                                            <span class="material-list-item-label">Male</span>
+                                                                        </label>
+                                                                    </span>
+                                                                    <span class="material-list-item last">
+                                                                        <label>
+                                                                            <input type="radio" name="Gender" value="2" ng-model="pfMyselfModel.Gender" class="material-radio">&nbsp;
+                                                                            <span class="material-list-item-label">Female</span>
+                                                                        </label>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row" style="margin:-12px 0 0 0 !important">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Age</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="material-field has-feedback" ng-class="{'has-error': (pfMyself.$submitted || pfMyself.age.$touched) && pfMyself.age.$error.required || pfMyself.age.$error.maxlength}">
+                                                                <input name="age" id="txtAge" class="form-control material-textbox"   type="number" ng-maxlength="2" ng-minlength="1" ng-model="pfMyselfModel.age" required="">
+                                                                <div ng-show="pfMyself.$submitted || pfMyself.age.$touched">
+                                                                    <div ng-show="pfMyself.age.$error.required" class="help-block">Age is required.</div>
+                                                                    <div ng-show="pfMyself.age.$error.maxlength" class="help-block">Maximum age upto 100.</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Marital Status</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="mdl-selectfield">
+                                                                <i id="select-icon"></i>
+                                                                <select id="maritalStatus" name="martialStatus" ng-model="pfMyselfModel.martialStatus">
+                                                                    <option value="" selected>Choose your option</option>
+                                                                    <option value="1">Married</option>
+                                                                    <option value="2">single</option>
+                                                                    <option value="2">widow</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Languages</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="row">
+                                                                <!--<ul class="topics">-->
+                                                                <div class="col-xs-3" ng-repeat='i in pfMyselfModel.language'>
+                                                                    <div class="main-container__column material-checkbox-group material-checkbox-group_primary">
+                                                                        <input type="checkbox" id="{{i.Name}}" class="material-checkbox" ng-model="i.isSelected" ng-click="updateSelection($index, pfMyselfModel.language)" />
+                                                                        <label for="{{i.Name}}" class="material-checkbox-group__label">{{i.Name}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left" style="padding-top:10px;">
+                                                            <span class="portfolio-lable">Hobbies</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="input-field col s12">
+                                                                <textarea id="hobbies" name="hobbies" class="materialize-textarea" ng-model="pfMyselfModel.hobbies"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left" style="padding-top:10px;">
+                                                            <span class="portfolio-lable">Myself Description</span>
+                                                        </div>
+                                                        <div class="col-sm-9" ng-class="{'has-error': (pfMyself.$submitted || pfMyself.description.$touched) && pfMyself.description.$error.required}">
+                                                            <div class="input-field col s12">
+                                                                <textarea class="materialize-textarea" name="description" rows="3" id="myselfDesc" ng-model="pfMyselfModel.description" required></textarea>
+                                                            </div>
+                                                            <div ng-show="pfMyself.$submitted || pfMyself.description.$touched">
+                                                                <div ng-show="pfMyself.description.$error.required" class="help-block">Description is required.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Profile Picture</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="l-image-container add">
+                                                                <label class="drop_target">
+                                                                    <div class="image_preview"></div>
+                                                                    <input id="inputFile" type="file" valid-file ng-model="pfMyselfModel.userUpload" />
+                                                                </label>
+                                                            </div>
+                                                            <!--<input type="file" class="file" data-overwrite-initial="false" valid-file data-min-file-count="2" name="userUpload" id="userUpload"  style="color:#000"  ng-click="userUpload()" ng-model="pfMyselfModel.userUpload" />-->
+                                                                <div ng-show="validateProfilePic" class="help-block" style="color:#d9534f">Profile picture is required.</div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="action-button">Next</button>
+                                                </form>
+                                            </fieldset>
+                                            <fieldset id="profession-fieldset">
+                                                <form id="pfProfession" name="pfProfession" ng-submit="profession(pfMyself.$valid,pfProfession.$valid)" novalidate="">
+                                                    <h2 class="fs-title">Profession</h2>
+                                                    <div class="row portfolio-main-row">                                                        
+                                                        <div class="col-sm-4 text-left">
+                                                            <span class="portfolio-lable">Highest Qualifictaion</span>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="material-field">
+                                                                <input name="highestQual"  class="form-control material-textbox"  ng-model="pfProfessionModel.highestQual" ng-disabled="portfolio.profession" type="text">
+                                                                <!--<label class="material-textlabel" for="">Highest Qualifictaion</label>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-4 text-left">
+                                                            <span class="portfolio-lable">Primary Profession</span>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="mdl-selectfield" ng-class="{'has-error': (pfProfession.$submitted || pfProfession.profileType.$touched) && pfProfession.profileType.$error.required}">
+                                                                <i id="select-icon"></i>
+                                                                <select name="profileType" class="form-control" ng-model="pfProfessionModel.profileType" required ng-disabled="portfolio.profession">
+                                                                    <option value="" selected="">Choose your option</option>
+                                                                    <option value="1">Software Developer</option>
+                                                                    <option value="2">Charted Accountant</option>
+                                                                    <option value="2">Software Engineer</option>
+                                                                </select>
+                                                                <div ng-show="pfProfession.$submitted || pfProfession.profileType.$touched">
+                                                                    <div ng-show="pfProfession.profileType.$error.required" class="help-block">Primary Profession is required.</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-4 text-left">
+                                                            <span class="portfolio-lable">Secondary Profession</span>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                        <!--<li ng-repeat='p in pfProfessionModel.professionType'>
+                                                            <input type="checkbox" ng-model="p.isSelected" ng-click="updateSelection($index, pfProfessionModel.professionType)" ng-disabled="portfolio.profession" />{{p.Name}}
+                                                        </li>-->
+                                                            <div class="row">
+                                                                <div class="col-xs-4" ng-repeat='p in pfProfessionModel.professionType'>
+                                                                    <div class="main-container__column material-checkbox-group material-checkbox-group_primary">
+                                                                        <input type="checkbox" id="{{p.Name}}" class="material-checkbox" ng-model="p.isSelected" ng-click="updateSelection($index, pfProfessionModel.professionType)" ng-disabled="portfolio.profession" />
+                                                                        <label for="{{p.Name}}" class="material-checkbox-group__label"><span>{{p.Name}}</span></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-4 text-left">
+                                                            <span class="portfolio-lable">Experience</span>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="mdl-selectfield" style="margin-top:-10px">
+                                                                        <i id="select-icon"></i>
+                                                                        <select name="chooseYears" class="form-control" ng-model="pfProfessionModel.chooseYears" ng-disabled="portfolio.profession">
+                                                                            <option value="" selected>Choose years</option>
+                                                                            <option value="1">00</option>
+                                                                            <option value="2">01</option>
+                                                                            <option value="2">02</option>
+                                                                            <option value="1">03</option>
+                                                                            <option value="2">04</option>
+                                                                            <option value="2">05</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="mdl-selectfield" style="margin-top:-10px">
+                                                                        <i id="select-icon"></i>
+                                                                        <select name="chooseMonths" class="form-control" ng-model="pfProfessionModel.chooseMonths" ng-disabled="portfolio.profession">
+                                                                            <option value="" selected>Choose Months</option>
+                                                                            <option value="1">00</option>
+                                                                            <option value="2">01</option>
+                                                                            <option value="2">02</option>
+                                                                            <option value="1">03</option>
+                                                                            <option value="2">04</option>
+                                                                            <option value="2">05</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <input type="button" id="btnPfProfession" name="previous" ng-click="previousProfessionClick()" class="action-button" value="Previous" ng-disabled="portfolio.profession" />
+                                                    <button type="submit" name="next" class="action-button" ng-disabled="portfolio.profession">Next</button>
+                                                </form>
+                                            </fieldset>
+                                            <fieldset id="remuneration-fieldset">
+                                                <form id="pfRenumeration" name="pfRenumeration" ng-submit="renumeration(pfMyself.$valid,pfProfession.$valid,pfRenumeration.$valid)" novalidate>
+                                                    <h2 class="fs-title">Renumeration</h2>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Current Assignment</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="input-field col s12">
+                                                                <textarea name="currentAssignment" nam class="materialize-textarea" ng-model="pfRenumerationModel.currentAssignment" ng-disabled="portfolio.renumeration"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Last Assignment</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="input-field col s12">
+                                                                <textarea name="lastAssignment" class="materialize-textarea" ng-model="pfRenumerationModel.lastAssignment" ng-disabled="portfolio.renumeration"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Remuneration</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="material-field">
+                                                                <input name="remuneration" class="form-control material-textbox" ng-model="pfRenumerationModel.remuneration"  type="text" ng-disabled="portfolio.renumeration">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div for="lblCountry" class="col-sm-3 text-left"><span class="portfolio-lable">Country</span></div>
+                                                        <div class="col-sm-9 mdl-selectfield" ng-class="{'has-error': (pfRenumeration.$submitted || pfRenumeration.country.$touched) && pfRenumeration.country.$error.required}">
+                                                            <select name="country" class="form-control" ng-change="countryChangeEvent(pfRenumerationModel.country)" ng-model="pfRenumerationModel.country" required>
+                                                                <option value="">Choose your option</option>
+                                                                <option ng-repeat="country in countries"  value="{{country.Id}}">{{country.Name}}</option>
+                                                            </select>
+                                                            <div ng-show="pfRenumeration.$submitted || pfRenumeration.country.$touched">
+                                                                <div ng-show="pfRenumeration.country.$error.required" class="help-block">Select a country.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div for="lblState" class="col-sm-3 text-left"><span class="portfolio-lable">State</span></div>
+                                                        <div class="col-sm-9 mdl-selectfield" ng-class="{'has-error': (pfRenumeration.$submitted || pfRenumeration.state.$touched) && pfRenumeration.state.$error.required}">
+                                                            <select name="state" class="form-control"  ng-change="stateChangeEvent(pfRenumerationModel.state)" ng-model="pfRenumerationModel.state" required>
+                                                                <option value="">Choose your option</option>
+                                                                <option ng-repeat="state in states" ng-selected="pfRenumerationModel.state"  value="{{state.Id}}">{{state.Name}}</option>
+                                                            </select>
+                                                            <div ng-show="pfRenumeration.$submitted || pfRenumeration.state.$touched">
+                                                                <div ng-show="pfRenumeration.state.$error.required" class="help-block">Select a state.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div for="lblTownCity" class="col-sm-3 text-left"><span class="portfolio-lable">Town / City</span></div>
+                                                        <div class="col-sm-9 mdl-selectfield" ng-class="{'has-error': (pfRenumeration.$submitted || pfRenumeration.city.$touched) && pfRenumeration.city.$error.required}">
+                                                            <select name="city" class="form-control" ng-model="pfRenumerationModel.city" required>
+                                                                <option value="">Choose your option</option>
+                                                                <option ng-repeat="city in cities" ng-selected="pfRenumerationModel.city" value="{{city.Id}}">{{city.Name}}</option>
+                                                            </select>
+                                                            <div ng-show="pfRenumeration.$submitted || pfRenumeration.city.$touched">
+                                                                <div ng-show="pfRenumeration.city.$error.required" class="help-block">Select a city.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable" style="font-size:31px;">Availabilty</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                            <div class="col-sm-3 text-left">
+                                                                <span class="portfolio-lable">From Date</span>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="date" ng-flat-datepicker datepicker-config="datepickerConfig" ng-model="pfRenumerationModel.date" ng-disabled="portfolio.renumeration" placeholder="MM/DD/YYYY">
+                                                            </div>
+                                                        </div>
+                                                    <div class="row portfolio-main-row">
+                                                            <div class="col-sm-3 text-left">
+                                                                <span class="portfolio-lable">To Date</span>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="toDate" ng-flat-datepicker datepicker-config="datepickerConfig" ng-model="pfRenumerationModel.toDate" ng-disabled="portfolio.renumeration" placeholder="MM/DD/YYYY">
+                                                            </div>
+                                                        </div>
+                                                    <input type="button" id="btnPfRenumeration" name="previous" ng-click="previousRenumerationClick()" class="previous action-button" value="Previous" ng-disabled="portfolio.renumeration" />
+                                                    <button type="submit" name="next" class="action-button" value="Next" ng-disabled="portfolio.renumeration">Next</button>
+                                                </form>
+                                            </fieldset>
+                                            <fieldset id="contact-fieldset">
+                                                <form id="pfContactDetails" name="pfContactDetails" ng-submit="contactDetails(pfMyself.$valid,pfProfession.$valid,pfRenumeration.$valid,pfContactDetails.$valid)" novalidate>
+                                                    <h2>Contact Details</h2>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Email</span>
+                                                        </div>
+                                                        <div class="col-sm-9" ng-class="{'has-error': (pfContactDetails.$submitted || pfContactDetails.email.$touched) && pfContactDetails.email.$error.required || pfContactDetails.email.$error.email}">
+                                                            <div class="material-field">
+                                                                <input name="email" class="form-control material-textbox" ng-model="pfContactDetailsModel.email"  required type="email" ng-disabled="portfolio.contactDetails">
+                                                                <!--<label class="material-textlabel" for="">Email</label>-->
+                                                            </div>
+                                                            <div ng-show="pfContactDetails.$submitted || pfContactDetails.email.$touched">
+                                                                <div ng-show="pfContactDetails.email.$error.required" class="help-block">Email is required.</div>
+                                                                <div ng-show="pfContactDetails.email.$error.email" class="help-block">Not valid email.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Phone Number</span>
+                                                        </div>
+                                                        <div class="col-sm-4" ng-class="{'has-error': (pfContactDetails.$submitted || pfContactDetails.countryCodes.$touched) && pfContactDetails.countryCodes.$error.required }" style="margin-top:-15px">
+                                                            <span class="select-container">
+                                                                <select id="countryCodeSelect" name="countryCodes"  ng-model="pfContactDetailsModel.countryCodes" ng-disabled="portfolio.contactDetails" required>
+                                                                    <option value=""> Country Code</option>
+                                                                    <option ng-repeat="codes in phoneCodes" value="{{codes.Id}}">{{codes.Name}}</option>
+                                                                </select>
+                                                            </span>
+                                                            <div ng-show="pfContactDetails.$submitted || pfContactDetails.countryCodes.$touched">
+                                                                <div ng-show="pfContactDetails.countryCodes.$error.required" class="help-block">Country code is required.</div>
+                                                            </div>
+                                                        </div>
+                                                      
+                                                        <div class="col-sm-5" ng-class="{'has-error': (pfContactDetails.$submitted || pfContactDetails.phoneNumber.$touched) && pfContactDetails.phoneNumber.$error.required || pfContactDetails.phoneNumber.$error.maxlength}">
+                                                            <div class="material-field">
+                                                                <input name="phoneNumber" class="form-control material-textbox" ng-minlength="10" ng-maxlength="10" ng-model="pfContactDetailsModel.phoneNumber" required type="number" ng-disabled="portfolio.contactDetails">
+                                                            </div>
+                                                            <div ng-show="pfContactDetails.$submitted || pfContactDetails.phoneNumber.$touched">
+                                                                <div ng-show="pfContactDetails.phoneNumber.$error.required" class="help-block">Enter a mobile no.</div>
+                                                                <div ng-show="pfContactDetails.phoneNumber.$error.maxlength" class="help-block">Enter upto 10 digits.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="button" id="btnPfContactDetails" name="previous" ng-click="previousContactDetailsClick()" class="action-button" value="Previous" ng-disabled="portfolio.contactDetails" />
+                                                    <button type="submit" name="next" class="action-button" ng-disabled="portfolio.contactDetails">Next</button>
+                                                </form>
+                                            </fieldset>
+                                            <fieldset id="image-fieldset">
+                                                <form id="pfImagesAndVideos" name="pfImagesAndVideos" ng-submit="ImagesAndVideos(pfImagesAndVideos.$valid)" novalidate>
+                                                    <h2>Images/Videos</h2>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-12 text-left">
+                                                            <span class="portfolio-lable">Image Upload</span>
+                                                        </div>
+                                                        <div class="col-sm-12 container" ng-if="mulipleImagePaths.length > 0">
+                                                            <div ng-repeat="path in mulipleImagePaths">
+                                                                <div class="l-image-container delete-image{{mulipleImagePaths.indexOf(path)}}">
+                                                                    <img src="{{path}}" />
+                                                                    <!--<span class="fa fa-pencil edit" ng-click="showImageUploadLayout()"></span>-->
+                                                                    <span class="fa fa-trash-o delete" id="{{mulipleImagePaths.indexOf(path)}}" ng-click="deleteImage(path,$event)"></span>
+                                                                </div>
+                                                            </div>
+                                                            <label><input type="checkbox" id="chkUploadMorePics"  ng-model="uploadMorePics" ng-click="showImageUploadLayout($event)"> Want to upload more Pics</label>
+                                                        </div>
+                                                        <div class="col-sm-12 no-padding" ng-show="imageLayoutVisiblity" ng-class="{'has-error': (pfImagesAndVideos.$submitted || pfImagesAndVideos.imageupload.$touched) && pfImagesAndVideos.imageupload.$error.required}">
+                                                            <input type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2" name="imageupload" id="imageupload" ng-file-model="files"  style="color:#000" ngfilemodel ng-click="imageupload()" required  ng-disabled="portfolio.imagesAndVideos"/>
+                                                            <div ng-show="pfImagesAndVideos.$submitted || pfImagesAndVideos.imageupload.$touched">
+                                                                <div ng-show="pfImagesAndVideos.imageupload.$error.required" class="help-block">Please upload some images.</div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-12 text-left">
+                                                            <span class="portfolio-lable">Video Upload</span>
+                                                        </div>
+                                                        <div class="col-sm-12 no-padding" ng-if="multipleVideoPaths.length > 0">
+                                                            <div ng-repeat="imagePath in multipleVideoPaths">
+                                                                <div class="l-image-container delete-video{{multipleVideoPaths.indexOf(imagePath)}}">
+                                                                    <video width="320" height="240" controls src="{{imagePath}}">
+                                                                        Your browser does not support the video tag.
+                                                                    </video>
+                                                                    <span class="fa fa-trash-o delete" id="{{multipleVideoPaths.indexOf(imagePath)}}" ng-click="deleteVideo(imagePath,$event)"></span>
+                                                                </div>
+                                                             </div>
+                                                            <label><input type="checkbox" id="chkUploadVideoMorePics"  ng-model="videoUploadMorePics" ng-click="showVideoUploadLayout($event)"> Want to upload more videos.</label>
+                                                        </div>
+                                                        <div class="col-sm-12 no-padding" ng-show="videosLayoutVisiblity">
+                                                            <!--<input type="file" id="videoupload" multiple class="file" data-overwrite-initial="false" data-min-file-count="2" ng-file-model="files" multiple style="color:#000" ngfilemodel ng-click="videoupload()" ng-disabled="portfolio.imagesAndVideos"/>-->
+                                                            <input type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2" name="videoupload" id="videoupload" ng-file-model="files" style="color:#000" ngfilemodel ng-click="videoupload()" required ng-disabled="portfolio.imagesAndVideos" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Google Drive URL</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="material-field">
+                                                                <input name="googleDrive" class="form-control material-textbox" ng-model="pfImagesAndVideosModel.googleDrive"  type="text" ng-disabled="portfolio.imagesAndVideos">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Youtube Channel</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="material-field">
+                                                                <input name="youtubeChannel" class="form-control material-textbox" ng-model="pfImagesAndVideosModel.youtubeChannel"  type="text" ng-disabled="portfolio.imagesAndVideos">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Disable Profile: </span>
+                                                        </div>
+                                                        <div class="col-sm-9 text-left">
+                                                            <span class="material-form-control-wrap radio-32">
+                                                                <span class="material-form-control wpcf7-radio frent">
+                                                                    <span class="material-list-item first">
+                                                                        <label>
+                                                                            <input type="radio" name="radio-32" value="RENT" class="material-radio" ng-model="pfImagesAndVideosModel.profileDisable" ng-disabled="portfolio.imagesAndVideos">&nbsp;
+                                                                            <span class="material-list-item-label">Yes</span>
+                                                                        </label>
+                                                                    </span>
+                                                                    <span class="material-list-item last">
+                                                                        <label>
+                                                                            <input type="radio" name="radio-32" value="BUY" class="material-radio" ng-model="pfImagesAndVideosModel.profileDisable" ng-disabled="portfolio.imagesAndVideos">&nbsp;
+                                                                            <span class="material-list-item-label">No</span>
+                                                                        </label>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <input type="button" name="previous" id="btnPfImagesAndVideos" class="action-button" value="Previous" ng-click="previousImagesAndVideos()" ng-disabled="portfolio.imagesAndVideos" />
+                                                    <button type="submit" class="action-button" ng-disabled="portfolio.imagesAndVideos">Save</button>
+                                                    <input type="button" name="cancel" class="submit action-button" ng-click="clearPortfolioData()" value="Cancel" ng-disabled="portfolio.imagesAndVideos"/>
+                                                </form>
+                                            </fieldset>
+
+                                        </div>
+                                    </section>
+
+                                    <section id="content2" class="portfolio-select-section" ng-show="businessObj.enableBusiness">
+                                        <form  id="msform" name="pfBusiness" ng-submit="portfolioBusinessSubmit(pfBusiness.$valid)" novalidate>
+                                            <div class="portfolio-business-page">
+                                                    <h2>Business</h2>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Name</span>
+                                                        </div>
+                                                        <div class="col-sm-9" ng-class="{'has-error': (pfBusiness.$submitted || pfBusiness.name.$touched) && pfBusiness.name.$error.required}">
+                                                            <div class="material-field">
+                                                                <input name="name" class="form-control material-textbox" required type="text"  ng-model="pfBusinessModel.name">
+                                                            </div>
+                                                            <div ng-show="pfBusiness.$submitted || pfBusiness.name.$touched">
+                                                                <div ng-show="pfBusiness.name.$error.required" class="help-block">Name is required.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Image Upload</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="bus_l-image-container add">
+                                                                <label class="bus_drop_target">
+                                                                    <div class="bus_image_preview"></div>
+                                                                    <input id="bus_inputFile" type="file" valid-file ng-model="pfBusinessModel.imagePath" />
+                                                                </label>
+                                                            </div>
+                                                            <div ng-show="bus_validateProfilePic" class="help-block" style="color:#d9534f">Profile picture is required.</div>
+                                                        </div>
+                                                        <!--<div class="col-sm-9">
+                                                            <input type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2" ng-file-model="files" style="color:#000" ngfilemodel ng-click="imageupload()" ng-model="pfBusinessModel.imagePath" />
+                                                        </div>-->
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Current Assignment</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="input-field col s12">
+                                                                <textarea id="hobbies" class="materialize-textarea" ng-model="pfBusinessModel.currentAssignment"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Google Drive URL</span>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <div class="material-field">
+                                                                <input name="userName" class="form-control material-textbox" ng-model="pfBusinessModel.googleDriveUrl" type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Phone Number</span>
+                                                        </div>
+                                                        <div class="col-sm-9" ng-class="{'has-error': (pfBusiness.$submitted || pfBusiness.phoneno.$touched) && pfBusiness.phoneno.$error.required}">
+                                                            <div class="material-field">
+                                                                <input name="phoneno" class="form-control material-textbox"  required="" type="number" ng-model="pfBusinessModel.phoneno">
+                                                            </div>
+                                                            <div ng-show="pfBusiness.$submitted || pfBusiness.phoneno.$touched">
+                                                                <div ng-show="pfBusiness.phoneno.$error.required" class="help-block">Phone no is required.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row portfolio-main-row">
+                                                        <div class="col-sm-3 text-left">
+                                                            <span class="portfolio-lable">Email</span>
+                                                        </div>
+                                                        <div class="col-sm-9" ng-class="{'has-error': (pfBusiness.$submitted || pfBusiness.email.$touched) && pfBusiness.email.$error.required}">
+                                                            <div class="material-field">
+                                                                <input name="email" class="form-control material-textbox"  required="" type="email" ng-model="pfBusinessModel.email">
+                                                            </div>
+                                                            <div ng-show="pfBusiness.$submitted || pfBusiness.email.$touched">
+                                                                <div ng-show="pfBusiness.email.$error.required" class="help-block">Email is required.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <button type="submit" class="action-button">Save</button>
+                                            <input type="button" name="cancel" class="submit action-button" value="Cancel" />
+                                       </form>
+                                    </section>
+                                </main>
+                            </div>
+                            <!-- Portfolio Control Buttons [ END ] -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="footer clearfix">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

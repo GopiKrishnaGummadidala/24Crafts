@@ -1,0 +1,53 @@
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#/home"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">User</li>
+			</ol>
+		</div><!--/.row-->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+                    
+					<div class="panel-heading">Spam</div>
+					<div class="panel-body">
+                        <div class="bootstrap-table">
+							<div class="fixed-table-toolbar">
+								<div class="pull-right search">
+									<input class="form-control" type="text" placeholder="Search" ng-model="searchText">
+								</div>
+							</div>
+							<div class="fixed-table-container">
+								<div class="fixed-table-body">
+								<table class="table table-hover">
+									<thead>
+									<tr>
+										<th style="text-align: right; "><div class="th-inner ">ID</div></th>
+										<th><div class="th-inner ">ByUserId</div></th>
+										<th><div class="th-inner ">ByCustId</div></th>
+										<th><div class="th-inner ">SpamUserId</div></th>
+										<th><div class="th-inner ">SpamCustId</div></th>
+										<th><div class="th-inner ">Messages</div></th>
+										<th><div class="th-inner ">CreatedDate</div></th>
+										<th><div class="th-inner ">IsApprovedAdmin</div></th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="tod in toCount | filter:searchText">
+											<td style="text-align: right; ">{{tod.SpamId}}</td>
+											<td>{{tod.ByUserId}}</td>
+											<td>{{tod.ByCustId}}</td>
+											<td>{{tod.SpamUserId}}</td>
+											<td>{{tod.SpamCustId}}</td>
+											<td>{{tod.Messages}}</td>
+											<td>{{tod.CreatedDate | date}}</td>
+											<td>{{tod.IsApprovedAdmin}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

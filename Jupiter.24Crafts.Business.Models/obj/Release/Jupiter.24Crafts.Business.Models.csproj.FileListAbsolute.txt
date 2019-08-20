@@ -1,0 +1,5 @@
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Business.Models\bin\Release\Jupiter.24Crafts.Business.Models.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Business.Models\bin\Release\Jupiter.24Crafts.Business.Models.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Business.Models\obj\Release\Jupiter.24Crafts.Business.Models.csprojResolveAssemblyReference.cache
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Business.Models\obj\Release\Jupiter.24Crafts.Business.Models.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Business.Models\obj\Release\Jupiter.24Crafts.Business.Models.pdb

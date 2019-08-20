@@ -1,0 +1,10 @@
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\Jupiter.24Crafts.Data.EF.dll.config
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\Jupiter.24Crafts.Data.EF.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\Jupiter.24Crafts.Data.EF.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\EntityFramework.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\EntityFramework.SqlServer.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\EntityFramework.xml
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\bin\Debug\EntityFramework.SqlServer.xml
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\obj\Debug\Jupiter.24Crafts.Data.EF.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\obj\Debug\Jupiter.24Crafts.Data.EF.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Data.EF\obj\Debug\Jupiter.24Crafts.Data.EF.csprojResolveAssemblyReference.cache

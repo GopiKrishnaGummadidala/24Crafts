@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>24Crafts Adimd</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/bootstrap-table.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+     <script data-require="angular.js@1.3.6" data-semver="1.3.6" src="https://code.angularjs.org/1.4.8/angular.js"></script>
+   <script src="https://angular-ui.github.io/ui-router/lib/angular-1.2.14/angular-animate.js"></script>
+ <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+ <style>
+ .left{
+	 float: left;
+ }
+ .right{
+	 float: right;
+ }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  transform: scale(.75);
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+</head>
+
+<body ng-app="admincraft" ng-controller="mainCrtl">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span>{{appName}}</span> Admin</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul class="nav menu">
+			<li class="active"><a href="#/home"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+			<li class="parent ">
+				<a style="cursor: pointer">
+					<span data-toggle="collapse" href="#sub-item-1">
+					<svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>New Users</span>  
+				</a>
+				<ul class="children collapse" id="sub-item-1">
+					<li>
+						<a class="" href="#/singleuser">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Single Users
+						</a>
+					</li>
+					<li>
+						<a class="" href="#/bussinesuser">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg>Bussines Users
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="parent ">
+				<a  style="cursor: pointer">
+					<span data-toggle="collapse" href="#sub-item-2">
+					<svg class="glyph stroked camera "><use xlink:href="#stroked-camera"/></svg>Image/Video update</span>  
+				</a>
+				<ul class="children collapse" id="sub-item-2">
+					<li>
+						<a class="" href="#/singleuserimage">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Single Users
+						</a>
+					</li>
+					<li>
+						<a class="" href="#/bussinesuserimage">
+							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg>Bussines Users
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#/opportunites"><svg class="glyph stroked key "><use xlink:href="#stroked-key"/></svg>Opportunities</a></li>
+			<li><a href="#/spam"><svg class="glyph stroked sound on"><use xlink:href="#stroked-sound-on"/></svg>Reported as Spam</a></li>
+			<li><a href="#/"><svg class="glyph stroked open letter"><use xlink:href="#stroked-open-letter"/></svg>Send offers/Notifications</a></li>
+			<li><a href="#/activeprofiles"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></svg></use></svg>Active Profile View</a></li>
+			<li><a href="#/statprofiles"><svg class="glyph stroked star"><use xlink:href="#stroked-star"/></svg>Stats</a></li>
+			<li><a href="#/"><svg class="glyph stroked printer"><use xlink:href="#stroked-printer"/></svg>Approval for Advertise</a></li>
+			<li><a href="#/"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg>Advertise</a></li>
+			<li><a href="#/professions"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg>Professions</a></li>
+			<li><a href="#/languages"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg>Languages</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		<div ui-view="home" class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">App Cont Here</div>	
+	
+	</div>	<!--/.main-->
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/app.js"></script>
+	
+	<script>
+		!function ($) {
+		    $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+		        $(this).find('em:first').toggleClass("glyphicon-minus");      
+		    }); 
+		    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+	</script>	
+</body>
+
+</html>

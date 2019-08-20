@@ -1,0 +1,4 @@
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Service.Api.Tests\bin\Debug\Jupiter.24Crafts.Service.Api.Tests.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Service.Api.Tests\bin\Debug\Jupiter.24Crafts.Service.Api.Tests.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Service.Api.Tests\obj\Debug\Jupiter.24Crafts.Service.Api.Tests.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Service.Api.Tests\obj\Debug\Jupiter.24Crafts.Service.Api.Tests.pdb

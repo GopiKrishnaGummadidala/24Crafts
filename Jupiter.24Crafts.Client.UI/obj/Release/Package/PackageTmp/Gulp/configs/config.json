@@ -1,0 +1,19 @@
+﻿{
+    "buildDest": {
+        "js": "Build/js",
+        "css": "Build/css"
+    },
+    "scripts": {
+      "clientMainMaster": [
+        "Scripts/jquery-1.10.2.js",
+        "Scripts/respond.js"      
+      ],
+        "clientSms": []      
+    },
+	"styles": {
+    "clientMainMaster": [
+      "Content/bootstrap.css",
+      "Content/Site.css"   
+    ]
+	}
+}

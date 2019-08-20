@@ -1,0 +1,53 @@
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#/home"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Opportunites</li>
+			</ol>
+		</div><!--/.row-->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+                    
+					<div class="panel-heading">User</div>
+					<div class="panel-body">
+                        <div class="bootstrap-table">
+							<div class="fixed-table-toolbar">
+								<div class="pull-right search">
+									<input class="form-control" type="text" placeholder="Search" ng-model="searchText">
+								</div>
+							</div>
+							<div class="fixed-table-container">
+								<div class="fixed-table-body">
+								<table class="table table-hover">
+									<thead>
+									<tr>
+										<th style="text-align: right; "><div class="th-inner ">ID</div></th>
+										<th><div class="th-inner ">Name</div></th>
+										<th><div class="th-inner ">Title</div></th>
+										<th><div class="th-inner ">Description</div></th>
+										<th><div class="th-inner ">IsApplied</div></th>
+										<th><div class="th-inner ">StartDate</div></th>
+										<th><div class="th-inner ">EndDate</div></th>
+										<th><div class="th-inner ">Professions</div></th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="tod in toCount | filter:searchText">
+											<td style="text-align: right; ">{{tod.CustId}}</td>
+											<td>{{tod.Name}}</td>
+											<td>{{tod.Title}}</td>
+											<td>{{tod.Description}}</td>
+											<td>{{tod.IsApplied}}</td>
+											<td>{{tod.StartDate}}</td>
+											<td>{{tod.EndDate}}</td>
+											<td>{{tod.Professions}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

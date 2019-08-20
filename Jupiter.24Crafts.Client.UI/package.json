@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "CRAFTS-CLIENT",
+  "private": true,
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-uglify": "1.5.1",
+    "gulp-concat": "2.6.0",
+    "gulp-sourcemaps": "1.6.0",
+    "require-dir": "0.3.0",
+    "gulp-clean-css": "~2.0.6",
+    "gulp-base64": "0.1.3"
+  }
+}

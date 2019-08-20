@@ -1,0 +1,5 @@
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\bin\Debug\Jupiter.24Crafts.Common.Resources.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\bin\Debug\Jupiter.24Crafts.Common.Resources.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\obj\Debug\Jupiter.24Crafts.Common.Resources.dll
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\obj\Debug\Jupiter.24Crafts.Common.Resources.pdb
+D:\24Crafts\Jupiter.24Crafts\Jupiter.24Crafts.Common.Resources\obj\Debug\Jupiter.24Crafts.Common.Resources.csprojResolveAssemblyReference.cache
